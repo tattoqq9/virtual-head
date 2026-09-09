@@ -1,5 +1,5 @@
-Virtual Head 0.1.0-alpha.6 — Third-party notices
-Audit date: 2026-09-08
+Virtual Head 0.1.0-alpha.7 — Third-party notices
+Audit date: 2026-09-09
 
 This file is a readable index. The complete license and notice texts collected
 from the installed distributions are in the licenses directory of the Windows
@@ -74,15 +74,19 @@ Supporting Python packages collected by the build environment
   ml_dtypes 0.6.0                  Apache-2.0
   Full texts and bundled notices: corresponding subfolders in licenses/
 
-NOT INCLUDED IN THE WINDOWS ZIP
+MODEL AND ASSET BUNDLE STATUS
 
-The distribution does not include ONNX model weights, Minecraft skin files,
-VRM/MMD/FBX assets, a standalone ffmpeg.exe, NVIDIA CUDA/cuDNN/TensorRT
-libraries, source/test videos, user settings, or generated outputs. OpenCV's
-internal FFmpeg video I/O binary is included and covered by the OpenCV third-
-party notices above. Selecting an external local file at runtime does not add
-that file to the application license. See MODEL_LICENSES.md for the model audit
-and distribution policy.
+The public distribution does not include ONNX model weights. MODEL_DOWNLOADS.json
+contains pinned URLs, sizes, and SHA-256 values for user-initiated downloads
+from the author's official GitHub Release. An alpha.7 private local test build
+may contain the two models listed in MODEL_BUNDLE_PLAN.json and is marked DO NOT
+REDISTRIBUTE. Public model bundling is blocked until written redistribution
+terms are recorded. Public and private
+bundles do not include third-party Minecraft skin files, VRM/MMD/FBX assets, a
+standalone ffmpeg.exe, NVIDIA CUDA/cuDNN/TensorRT libraries, source/test videos,
+user settings, or generated outputs. OpenCV's internal FFmpeg video I/O binary
+is included and covered by the OpenCV third-party notices above. See
+MODEL_LICENSES.md for the model audit and distribution policy.
 
 TRADEMARK AND FORMAT NOTICE
 

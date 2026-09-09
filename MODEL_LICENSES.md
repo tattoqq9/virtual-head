@@ -2,13 +2,13 @@
 
 調査日：2026-09-09
 
-Windows版はONNXを利用者がローカルで選択して実行できますが、配布ZIPにはモデルを含めません。コードのライセンスと学習済み重みの条件は別です。公開前に、このファイルと配布ZIPの内容が一致することを確認します。
+公開ZIPにはONNXを含めません。alpha.7は利用者の操作でPINTO0309氏の公式weights Releaseから固定URLの2モデルを直接取得し、容量とSHA-256を検証します。公開用のモデル同梱ビルドは`MODEL_BUNDLE_PLAN.json`の許諾記録が揃うまで失敗する設計です。コードのライセンスと学習済み重みの条件は別です。
 
 | 対象 | 確認できた情報 | Windows ZIPへの判断 |
 |---|---|---|
 | `vendor/hrffa_onnx.py` | 元リポジトリのコードはMIT、Copyright (c) 2026 Katsuya Hyodo | MIT全文を同梱して配布可 |
-| `deimv2_*wholebody49*.onnx` | 配布元のPINTO_model_zoo `488_DEIMv2-Wholebody49/LICENSE`はApache-2.0を明記。一方、現在のDEIMv2本家は非商用限定で、DINOv3由来物にはDINOv3条件も関係する | モデル固有表示と上流条件の関係を配布者へ確認するまで公開ZIPへ入れない |
-| `yawnet_distill_*.onnx` | YawNetはHRFFA公式weights releaseで配布されているが、READMEはコードをMITとしつつ派生重みの条件確認を求めている。使用中の重み単体のライセンス表示はない | 重み単体の再配布許諾が明記されていないため未同梱。権利者から配布条件を確認するまで公開ZIPへ入れない |
+| `deimv2_*wholebody49*.onnx` | 配布元のPINTO_model_zoo `488_DEIMv2-Wholebody49/LICENSE`はApache-2.0を明記。一方、現在のDEIMv2本家は非商用限定で、DINOv3由来物にはDINOv3条件も関係する | 約76MBのS版を同梱候補にした。モデル固有表示と上流条件の関係を配布者へ確認するまで公開ZIPへ入れない |
+| `yawnet_distill_*.onnx` | YawNetはHRFFA公式weights releaseで配布されているが、READMEはコードをMITとしつつ派生重みの条件確認を求めている。使用中の重み単体のライセンス表示はない | 約3MBの128版を同梱候補にした。権利者から配布条件を確認するまで公開ZIPへ入れない |
 | `hrffa_*.onnx` | コードはMIT。HRFFA READMEはDINOv3/DEIMv2由来重みについて、学習済みHRFFA重み・ONNXを配る前に派生物条件を確認するよう明記 | 派生重みの条件確認が終わるまで未同梱 |
 | DINOv3公式教師重み | DINOv3独自ライセンスは同条件での再配布を認めるが、制約・補償条項がある。HRFFAは教師重みを同梱しない | Virtual Headには教師重み自体を同梱しない。派生重みに適用される条件は権利者へ確認 |
 | `yolov9_{n,t}_wholebody34_*.onnx` | HRFFA READMEは、PINTO0309/YOLOによるMIT実装で学習したモデルとして再配布可能と明記 | 将来の小型検出器候補。現Windowsバックエンドとの入出力互換対応・精度試験・MIT表示を終えてから採用 |

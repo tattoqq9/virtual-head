@@ -5,7 +5,7 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 ![Virtual Headの画面](guide/images/01_overview.png)
 
 > [!WARNING]
-> 現在は開発者向けプレリリースです。学習済みONNXモデルはライセンス確認中のため配布物に含まれません。対応モデルを正当に入手済みのテスターを対象とします。
+> 現在はプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。商用利用を予定する場合は、先に[モデルの条件](MODEL_LICENSES.md)を確認してください。
 
 ## 主な機能
 
@@ -16,14 +16,14 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 - 頭の大きさ、位置、固定Pitch、追従平滑化の調整
 - CPUおよびNVIDIA CUDA実行
 - 画像・動画・モデルの入力検査と既知モデルのSHA-256照合
-- PC内だけでの処理。アカウント、広告、遠隔測定なし
+- 映像処理はPC内で完結。アカウント、広告、遠隔測定なし
 
 ## ダウンロードと起動
 
 1. GitHubの[Releases](https://github.com/tattoqq9/virtual-head/releases)から最新の`VirtualHead-*-windows-x64.zip`と`.sha256`をダウンロードします。
 2. ZIPを展開します。`VirtualHead.exe`と`_internal`フォルダを分離しないでください。
 3. `VirtualHead.exe`を起動します。
-4. 「モデル」タブで対応する頭部検出ONNXと回転角ONNXを指定します。
+4. 「モデル」タブの「標準モデルをダウンロード」を押します。約80MBを公式配布元から取得し、容量とSHA-256を検証して自動設定します。
 5. 入力とSkinを選び、「開始」を押します。
 
 Windows x64用です。Pythonのインストールは不要です。未署名プレリリースのため、Windowsから発行元未確認の警告が表示される場合があります。ダウンロードしたファイルのSHA-256をRelease記載値と照合してください。
@@ -56,6 +56,8 @@ Windows x64用です。Pythonのインストールは不要です。未署名プ
 
 任意のONNXが使えるわけではなく、Virtual Headの入出力仕様に合うモデルが必要です。検証に使用したファイル名と再配布判断は[MODEL_LICENSES.md](MODEL_LICENSES.md)を参照してください。
 
+標準モデルのダウンロードは利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
+
 ### 見た目
 
 ![見た目の設定](guide/images/06_appearance.png)
@@ -68,11 +70,11 @@ Windows x64用です。Pythonのインストールは不要です。未署名プ
 - 手や物体が顔の前を横切る場合の前景復元には対応していません。
 - カメラ録画は公称FPSを使うため、処理が追いつかないPCでは実時間とずれる場合があります。
 - 仮想カメラ、VRM、MMD、FBXのOverlayはこのWindows配布版に含まれません。
-- モデル、第三者Skin、単体FFmpeg、CUDA/cuDNNは同梱していません。
+- ONNXモデル、第三者Skin、単体FFmpeg、CUDA/cuDNNは同梱していません。
 
 ## プライバシーとセキュリティ
 
-画像、動画、カメラ映像は利用者のPC内で処理されます。現在の版には映像、診断情報、利用統計を外部送信する機能はありません。詳しくは[PRIVACY.md](PRIVACY.md)と[SECURITY.md](SECURITY.md)を参照してください。
+画像、動画、カメラ映像は利用者のPC内で処理されます。映像、診断情報、利用統計を外部送信しません。利用者が標準モデルの取得を選んだ場合だけ、GitHubへHTTPS接続します。詳しくは[PRIVACY.md](PRIVACY.md)と[SECURITY.md](SECURITY.md)を参照してください。
 
 不具合は[GitHub Issues](https://github.com/tattoqq9/virtual-head/issues)へ報告できます。ログや`run.json`にはローカルのユーザー名やファイルパスが含まれる場合があるため、公開前に内容を確認してください。未修正の脆弱性は公開Issueではなく、[GitHubの非公開Security Advisory](https://github.com/tattoqq9/virtual-head/security/advisories/new)から報告してください。
 

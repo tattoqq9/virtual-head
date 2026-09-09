@@ -4,6 +4,12 @@
   "models": [
     {
       "role": "detector",
+      "filename": "deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "bytes": 76165766,
+      "sha256": "b0ff4c4837f3fb079c64850b8c3cd9d0b7fcf620ef7902c942e728935b428ddd"
+    },
+    {
+      "role": "detector",
       "filename": "deimv2_dinov3_x_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
       "bytes": 240303551,
       "sha256": "c35c01b50835b42b09c98f0656336a5668181d2561600edf8ee288ece16088df"

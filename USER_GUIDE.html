@@ -26,7 +26,7 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <body>
 <header><div><h1>Virtual Head 使い方</h1><p>画像・動画・カメラの実写頭部へ、Minecraft互換SkinのVoxel頭部を重ねるWindowsアプリです。</p></div></header>
 <main>
-<p class="lead">最初に入力とモデルを選び、必要なら保存を有効にして「開始」を押します。設定は開始時に自動保存され、次回起動時に復元されます。</p>
+<p class="lead">最初に入力を選び、初回だけ標準モデルをダウンロードします。必要なら保存を有効にして「開始」を押します。</p>
 <div class="quick"><div><b>1</b>入力を選ぶ</div><div><b>2</b>モデルを確認</div><div><b>3</b>見た目を調整</div><div><b>4</b>開始する</div></div>
 
 <h2>画面全体</h2>
@@ -50,8 +50,8 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 
 <h2>モデルを設定する</h2>
 <div class="shot"><img src="guide/images/05_models.png" alt="モデル設定">
-<ol class="legend"><li><span class="n">1</span><span>対応する頭部検出ONNXを選択します。</span></li><li><span class="n">2</span><span>対応する回転角ONNXを選択します。</span></li><li><span class="n">3</span><span>まずCPUで動作確認し、必要に応じてCUDAへ切り替えます。</span></li><li><span class="n">4</span><span>CUDA DLLが自動検出されない場合だけフォルダを指定します。</span></li><li><span class="n">5</span><span>Roll補助が必要な場合だけランドマークを有効にします。</span></li><li><span class="n">6</span><span>音声付きH.264保存にはFFmpegを指定します。</span></li></ol></div>
-<div class="warning">モデルは配布物に含まれません。信頼できる入手元から取得した、Virtual Headの入出力仕様に合うONNXだけを指定してください。</div>
+<ol class="legend"><li><span class="n">1</span><span>取得済みの頭部検出ONNXを表示します。自作モデルを試す場合だけ変更します。</span></li><li><span class="n">2</span><span>取得済みの回転角ONNXを表示します。</span></li><li><span class="n">3</span><span>初回は「標準モデルをダウンロード」を押します。公式Releaseから約80MBを取得し、検証後に自動設定します。</span></li><li><span class="n">4</span><span>まずCPUで動作確認し、必要に応じてCUDAへ切り替えます。</span></li><li><span class="n">5</span><span>CUDA DLLが自動検出されない場合だけフォルダを指定します。</span></li><li><span class="n">6</span><span>Roll補助が必要な場合だけランドマークを有効にします。補助モデルは自動取得しません。</span></li><li><span class="n">7</span><span>音声付きH.264保存にはFFmpegを指定します。</span></li></ol></div>
+<div class="warning">標準モデルはPINTO0309氏の公式GitHub Releaseから直接取得します。商用利用を予定する場合は、アプリ内のモデルライセンス情報を確認してください。</div>
 
 <h2>頭の見た目を調整する</h2>
 <div class="shot"><img src="guide/images/06_appearance.png" alt="見た目の調整">
@@ -64,8 +64,8 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <h2>うまく動かないとき</h2>
 <div class="modes"><div class="card"><h3>開始できない</h3><p>入力、頭部検出モデル、回転角モデルの選択を確認します。</p></div><div class="card"><h3>GPUエラー</h3><p>CPUへ切り替えて確認します。CUDA使用時は対応するCUDAとcuDNNが必要です。</p></div><div class="card"><h3>頭がずれる</h3><p>拡大率、左右・上下位置、固定Pitchを少しずつ調整します。</p></div></div>
 <p>診断ログは<code>%LOCALAPPDATA%\VirtualHead\app.log</code>、実行結果は出力先の<code>run.json</code>にあります。</p>
-<p class="note">映像、画像、モデル、SkinはPC内で処理され、Virtual Headから外部へ送信されません。これは非公式アプリであり、MojangまたはMicrosoftの承認・提携を受けていません。</p>
+<p class="note">映像、画像、SkinはPC内で処理され、外部へ送信されません。標準モデルの取得を選んだ場合だけGitHubへHTTPS接続します。これは非公式アプリであり、MojangまたはMicrosoftの承認・提携を受けていません。</p>
 </main>
-<footer>Virtual Head 0.1.0-alpha.6 — Copyright © 2026 tatto</footer>
+<footer>Virtual Head 0.1.0-alpha.7 — Copyright © 2026 tatto</footer>
 </body>
 </html>

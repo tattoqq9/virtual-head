@@ -1,14 +1,15 @@
 # Virtual Head プライバシー方針
 
-最終更新：2026-09-08  
+最終更新：2026-09-09
 提供者：tatto
 
-Virtual Headは画像、動画、カメラ映像を利用者のWindows PC内で処理します。現在のWindows版には、映像、推論結果、利用統計、診断情報をtattoまたは第三者のサーバーへ送信する機能はありません。広告、アカウント、遠隔測定、更新確認機能もありません。
+Virtual Headは画像、動画、カメラ映像を利用者のWindows PC内で処理します。映像、推論結果、利用統計、診断情報をtattoまたは第三者のサーバーへ送信しません。広告、アカウント、遠隔測定、更新確認機能もありません。「標準モデルをダウンロード」を利用者が押した場合だけ、PINTO0309氏のGitHub Releaseへモデル取得のHTTPS通信を行います。
 
 ## PC内に保存する情報
 
 - `%LOCALAPPDATA%\VirtualHead\settings.json`：選択したモデル、Skin、画像、動画、出力先、FFmpeg、CUDA DLLフォルダなどのローカルパスと画面設定
 - `%LOCALAPPDATA%\VirtualHead\app.log`：処理エラーと診断情報。エラー内容にローカルパスが含まれる場合があります
+- `%LOCALAPPDATA%\VirtualHead\models`：利用者がダウンロードを選んだ標準ONNXモデル
 - 利用者が選んだ出力先：合成画像または動画、`tracking.jsonl`、`run.json`
 - `%LOCALAPPDATA%\VirtualHead\gui_smoke.json`、`self_test_result.json`：開発者向け自己診断を明示的に実行した場合のみ
 
@@ -20,8 +21,12 @@ Virtual Headは画像、動画、カメラ映像を利用者のWindows PC内で�
 
 利用者がFFmpegを指定した場合、Virtual Headは動画変換のためそのローカル実行ファイルを起動します。指定したFFmpeg自体の動作は、その配布元の方針に従います。
 
+## モデルのダウンロード通信
+
+アプリ起動だけでは通信しません。「標準モデルをダウンロード」を押して確認画面で同意した場合、`github.com`とGitHubの公式ファイル配信ドメインへ接続します。送信するのは通常のHTTPS要求だけで、選択した画像、動画、カメラ映像、ファイルパス、推論結果は送信しません。接続元IPアドレスやUser-Agentなど、一般的な通信情報はGitHub側で処理されます。GitHub側の取扱いはGitHubのプライバシー方針に従います。
+
 ## 削除
 
-Virtual Headを終了し、`%LOCALAPPDATA%\VirtualHead` と利用者が指定した出力フォルダを削除すると、Virtual Headが保存した設定、ログ、処理結果を削除できます。元の画像、動画、モデル、SkinはVirtual Headが管理するファイルではありません。
+Virtual Headを終了し、`%LOCALAPPDATA%\VirtualHead` と利用者が指定した出力フォルダを削除すると、Virtual Headが保存した設定、ログ、ダウンロード済み標準モデル、処理結果を削除できます。利用者が別途指定した画像、動画、モデル、SkinはVirtual Headが管理するファイルではありません。
 
-将来ネットワーク機能や自動更新、クラッシュレポートを追加する場合は、送信を開始する前にこの文書とアプリ画面を更新し、送信対象と選択方法を示します。
+将来自動更新やクラッシュレポートを追加する場合は、送信を開始する前にこの文書とアプリ画面を更新し、送信対象と選択方法を示します。

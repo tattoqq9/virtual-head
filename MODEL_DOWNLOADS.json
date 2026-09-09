@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source_name": "PINTO0309 / High-Angle Robust Fast FaceAlignment official weights release",
+  "source_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights",
+  "notice": "The application code license and trained-weight terms are separate. Review MODEL_LICENSES.md before commercial use.",
+  "models": [
+    {
+      "role": "detector",
+      "filename": "deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "bytes": 76165766,
+      "sha256": "b0ff4c4837f3fb079c64850b8c3cd9d0b7fcf620ef7902c942e728935b428ddd",
+      "url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/download/weights/deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx"
+    },
+    {
+      "role": "orientation",
+      "filename": "yawnet_distill_128_unified_v6u_1x3x128x128.onnx",
+      "bytes": 3078957,
+      "sha256": "ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6",
+      "url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/download/weights/yawnet_distill_128_unified_v6u_1x3x128x128.onnx"
+    }
+  ]
+}
