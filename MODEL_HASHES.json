@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "note": "These hashes identify the files tested by tatto. They do not grant redistribution rights; see MODEL_LICENSES.md.",
+  "models": [
+    {
+      "role": "detector",
+      "filename": "deimv2_dinov3_x_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "bytes": 240303551,
+      "sha256": "c35c01b50835b42b09c98f0656336a5668181d2561600edf8ee288ece16088df"
+    },
+    {
+      "role": "orientation",
+      "filename": "yawnet_distill_128_unified_v6u_1x3x128x128.onnx",
+      "bytes": 3078957,
+      "sha256": "ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6"
+    },
+    {
+      "role": "aligner",
+      "filename": "hrffa_vitl_ibug68_1x3x320x320.onnx",
+      "bytes": 1231653123,
+      "sha256": "96618ad81661dcce65eecd542b6cc3bebd1f1b9ebe0647c4a7c2dab63c4562e7"
+    }
+  ]
+}

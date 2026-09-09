@@ -1,0 +1,13 @@
+*.zip
+*.msix
+*.exe
+*.onnx
+*.vrm
+*.fbx
+*.pmx
+*.pmd
+*.log
+settings.json
+run.json
+tracking.jsonl
+outputs/

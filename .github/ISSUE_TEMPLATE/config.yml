@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: セキュリティ上の問題を非公開で報告
+    url: https://github.com/tattoqq9/virtual-head/security/advisories/new
+    about: 未修正の脆弱性や悪用可能な問題は、公開Issueではなくこちらから報告してください。
