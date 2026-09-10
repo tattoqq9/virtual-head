@@ -41,6 +41,24 @@ PowerShellでの確認例です。表示された値をReleaseの`.sha256`と比
 Get-FileHash .\VirtualHead-0.1.0-alpha.8-windows-x64.zip -Algorithm SHA256
 ```
 
+確認後は次の手順で警告を解除できます。
+
+1. ダウンロードしたZIPを右クリックし、「プロパティ」を開きます。
+2. 全般タブ下部に「許可する」または「ブロックの解除」があればチェックし、「適用」→「OK」を押します。
+3. 解除したZIPを「すべて展開」します。すでに展開していた場合も展開し直してください。
+4. `VirtualHead.exe`を起動します。
+5. SmartScreen画面で「詳細情報」を押し、アプリ名が`VirtualHead.exe`であることを確認して「実行」を押します。
+
+![ZIPのブロック解除](guide/images/00_unblock_zip.png)
+
+プロパティに解除項目がない場合は、SHA-256確認後にPowerShellで次を実行し、ZIPを展開し直せます。
+
+```powershell
+Unblock-File -LiteralPath .\VirtualHead-0.1.0-alpha.8-windows-x64.zip
+```
+
+SmartScreen自体を無効にする必要はありません。「実行」が表示されず、Windows 11のSmart App Controlがブロックしている場合、この未署名版をファイル単位で許可する方法はありません。PC全体の保護機能を無効にすることは推奨しません。
+
 警告の恒久対応と今後のMicrosoft Store配布については[コード署名方針](CODE_SIGNING.md)を参照してください。
 
 ## 主な機能
@@ -64,7 +82,7 @@ CUDA実行にはNVIDIAドライバー、CUDA 12.x、cuDNN 9.xが必要です。�
 
 ## 使い方
 
-アプリ画面下の「使い方」ボタンから、ダウンロード手順を含む10枚の画像ガイドを開けます。リポジトリ内の[USER_GUIDE.html](USER_GUIDE.html)も同じ内容です。
+アプリ画面下の「使い方」ボタンから画像ガイドを開けます。GitHub上の[USER_GUIDE.html](USER_GUIDE.html)は、ダウンロードと警告解除を含む11枚の画像で説明しています。
 
 ### 動画
 

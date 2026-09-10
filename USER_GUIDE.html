@@ -41,7 +41,13 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <p>現在のプレリリースはコード署名前のため、「WindowsによってPCが保護されました」と表示されます。公式Releaseから取得したZIPであることを確認し、可能ならRelease記載のSHA-256と照合してください。</p>
 <div class="shot"><img src="guide/images/00_smartscreen.png" alt="Microsoft Defender SmartScreenの画面">
 <ol class="legend"><li><span class="n">1</span><span>確認できたファイルだけ「詳細情報」を開きます。</span></li><li><span class="n">2</span><span>アプリ名が<code>VirtualHead.exe</code>であることを確認して「実行」を押します。</span></li></ol></div>
-<div class="warning">メール、広告、第三者サイトから入手した同名ファイルではこの操作を行わないでください。正式版では信頼された証明書によるコード署名を導入する予定です。</div>
+<h3>警告を解除する手順</h3>
+<div class="shot"><img src="guide/images/00_unblock_zip.png" alt="ZIPファイルのプロパティでブロックを解除する">
+<ol class="legend"><li><span class="n">1</span><span>「許可する」にチェックします。</span></li><li><span class="n">2</span><span>「適用」→「OK」を押してからZIPを展開し直します。</span></li></ol></div>
+<ol><li>GitHubの公式Releaseから<code>VirtualHead-バージョン-windows-x64.zip</code>と<code>.zip.sha256</code>を取得します。</li><li>PowerShellで<code>Get-FileHash .\VirtualHead-バージョン-windows-x64.zip -Algorithm SHA256</code>を実行し、Release記載値と一致することを確認します。</li><li>ZIPを右クリックして「プロパティ」を開きます。全般タブ下部に「許可する」または「ブロックの解除」がある場合はチェックし、「適用」→「OK」を押します。</li><li>解除したZIPを「すべて展開」し、<code>VirtualHead.exe</code>を起動します。</li><li>SmartScreen画面が表示された場合は「詳細情報」→「実行」を選びます。</li></ol>
+<p>プロパティに解除項目がない場合は、SHA-256確認後にPowerShellで<code>Unblock-File -LiteralPath .\VirtualHead-バージョン-windows-x64.zip</code>を実行し、ZIPを展開し直せます。SmartScreen自体を無効にする必要はありません。</p>
+<div class="warning">「実行」が表示されず、Windows 11のSmart App Controlがブロックしている場合、この未署名版をファイル単位で許可する方法はありません。PC全体の保護機能を無効にすることは推奨しません。</div>
+<div class="warning">メール、広告、第三者サイトから入手した同名ファイルでは、この解除操作を行わないでください。必ず<code>github.com/tattoqq9/virtual-head</code>のReleaseから取得してください。</div>
 
 <h2>画面全体</h2>
 <div class="shot"><img src="guide/images/01_overview.png" alt="Virtual Headの画面全体">
