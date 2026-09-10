@@ -5,7 +5,43 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 ![Virtual Headの画面](guide/images/01_overview.png)
 
 > [!WARNING]
-> 現在はプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。商用利用を予定する場合は、先に[モデルの条件](MODEL_LICENSES.md)を確認してください。
+> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。商用利用を予定する場合は、先に[モデルの条件](MODEL_LICENSES.md)を確認してください。
+
+## ダウンロード
+
+1. [Virtual Headのリポジトリ](https://github.com/tattoqq9/virtual-head)を開き、右側の「Releases」から最新リリースへ進みます。
+2. 「Assets」を開き、`VirtualHead-<version>-windows-x64.zip`をダウンロードします。
+3. 同じ場所の`.zip.sha256`は改ざん確認用です。「Source code」のZIPはアプリではありません。
+4. ZIPを右クリックして「すべて展開」し、展開先の`VirtualHead.exe`を起動します。`_internal`フォルダと分離しないでください。
+
+![リポジトリからReleasesへ](guide/images/00_repository.png)
+
+![ダウンロードするZIP](guide/images/00_release_download.png)
+
+Windows x64用です。Pythonのインストールは不要です。
+
+## 初回起動
+
+1. 「モデル」タブを開きます。
+2. 「標準モデルをダウンロード」を押します。
+3. 約80MBの頭部検出モデルとYawNetを公式配布元から取得し、容量とSHA-256を検証して自動設定します。
+4. 入力とSkinを選び、「開始」を押します。
+
+標準モデルの取得は利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
+
+## SmartScreenの警告
+
+現在のGitHub配布版はコード署名がないため、「WindowsによってPCが保護されました」「不明な発行元」と表示される場合があります。GitHubのこのリポジトリのReleaseから取得し、SHA-256が一致することを確認したファイルに限り、「詳細情報」から「実行」を選択してください。
+
+![SmartScreenの確認](guide/images/00_smartscreen.png)
+
+PowerShellでの確認例です。表示された値をReleaseの`.sha256`と比較します。
+
+```powershell
+Get-FileHash .\VirtualHead-0.1.0-alpha.8-windows-x64.zip -Algorithm SHA256
+```
+
+警告の恒久対応と今後のMicrosoft Store配布については[コード署名方針](CODE_SIGNING.md)を参照してください。
 
 ## 主な機能
 
@@ -14,23 +50,21 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 - カメラのリアルタイムプレビューと録画
 - Minecraft互換Skin PNGの頭部6面と髪・帽子レイヤー
 - 頭の大きさ、位置、固定Pitch、追従平滑化の調整
-- CPUおよびNVIDIA CUDA実行
+- NVIDIA CUDAを優先し、利用できないPCではCPUへ自動切替
 - 画像・動画・モデルの入力検査と既知モデルのSHA-256照合
 - 映像処理はPC内で完結。アカウント、広告、遠隔測定なし
 
-## ダウンロードと起動
+## GPUの自動利用
 
-1. GitHubの[Releases](https://github.com/tattoqq9/virtual-head/releases)から最新の`VirtualHead-*-windows-x64.zip`と`.sha256`をダウンロードします。
-2. ZIPを展開します。`VirtualHead.exe`と`_internal`フォルダを分離しないでください。
-3. `VirtualHead.exe`を起動します。
-4. 「モデル」タブの「標準モデルをダウンロード」を押します。約80MBを公式配布元から取得し、容量とSHA-256を検証して自動設定します。
-5. 入力とSkinを選び、「開始」を押します。
+alpha.8から「自動（GPU優先）」が初期値です。NVIDIA CUDAを初期化できれば、頭部検出とYawNetの両方でGPUを使います。利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
 
-Windows x64用です。Pythonのインストールは不要です。未署名プレリリースのため、Windowsから発行元未確認の警告が表示される場合があります。ダウンロードしたファイルのSHA-256をRelease記載値と照合してください。
+CUDA実行にはNVIDIAドライバー、CUDA 12.x、cuDNN 9.xが必要です。大容量になるためCUDA/cuDNNはZIPへ同梱していません。導入後も自動検出されない場合は、「モデル」タブのCUDA DLLフォルダにランタイムDLLのある場所を指定します。対応条件は[ONNX Runtime CUDA公式説明](https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html)を参照してください。AMD・Intel GPU向けDirectMLも検証しましたが、現在の頭部検出モデルに非対応の演算があるため、この版では使用しません。
+
+![モデルとGPU設定](guide/images/05_models.png)
 
 ## 使い方
 
-アプリ画面下の「使い方」ボタンから、7枚の画面画像を使ったガイドを開けます。リポジトリ内の[USER_GUIDE.html](USER_GUIDE.html)も同じ内容です。
+アプリ画面下の「使い方」ボタンから、ダウンロード手順を含む10枚の画像ガイドを開けます。リポジトリ内の[USER_GUIDE.html](USER_GUIDE.html)も同じ内容です。
 
 ### 動画
 
@@ -49,14 +83,6 @@ Windows x64用です。Pythonのインストールは不要です。未署名プ
 ![カメラ入力](guide/images/04_camera.png)
 
 通常はカメラ番号`0`を使用します。カメラ録画に音声は入りません。
-
-### モデル
-
-![モデル設定](guide/images/05_models.png)
-
-任意のONNXが使えるわけではなく、Virtual Headの入出力仕様に合うモデルが必要です。検証に使用したファイル名と再配布判断は[MODEL_LICENSES.md](MODEL_LICENSES.md)を参照してください。
-
-標準モデルのダウンロードは利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
 
 ### 見た目
 
