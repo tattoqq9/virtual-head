@@ -31,6 +31,14 @@ Windows x64用です。Pythonのインストールは不要です。
 
 標準モデルの取得は利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
 
+## 任意の高速頭部検出モデル
+
+0.1.0-alpha.10以降は、[Gold-YOLO-N Head](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)の固定入力ONNXを選択できます。16:9映像には`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`を確認済みです。取得したONNXを「モデル」タブの「頭部検出モデル」で選びます。
+
+現在のテスト動画341フレームでは341/341を検出し、検出器単体の中央値はDirectML 1.32ms、CPU 4.55msでした。標準YOLOv9-tは同じ条件でDirectML 6.41ms、CPU 25.57msです。全体速度にはYawNet、描画、保存時間も含まれるため、この倍率がそのままアプリ全体の倍率にはなりません。[詳細な比較結果](GOLD_YOLO_N_RESULT.md)を参照してください。
+
+Gold-YOLO-NのモデルはZIPや標準ダウンロードへ含めません。公式フォルダにはGPL-3.0のライセンスが置かれているため、利用者自身で[公式説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)と[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)を確認し、自分の用途で使用できるか判断してください。
+
 ## 使用モデルと謝辞
 
 頭部検出・回転角推定には、PINTO0309氏（Katsuya Hyodo氏）が公開しているプロジェクトとモデルを利用しています。研究・実装・モデル公開に感謝します。
@@ -38,6 +46,7 @@ Windows x64用です。Pythonのインストールは不要です。
 - [High-Angle Robust Fast Face Alignment（HRFFA）](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment)
 - [HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)
 - [YOLO-Wholebody34](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)
+- [Gold-YOLO-Head](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)
 - [PINTO0309 / YOLO](https://github.com/PINTO0309/YOLO)
 - [YawNet](https://github.com/PINTO0309/YawNet)
 - [YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)
@@ -53,7 +62,7 @@ Windows x64用です。Pythonのインストールは不要です。
 PowerShellでの確認例です。表示された値をReleaseの`.sha256`と比較します。
 
 ```powershell
-Get-FileHash .\VirtualHead-0.1.0-alpha.8-windows-x64.zip -Algorithm SHA256
+Get-FileHash .\VirtualHead-0.1.0-alpha.10-windows-x64.zip -Algorithm SHA256
 ```
 
 確認後は次の手順で警告を解除できます。
@@ -69,7 +78,7 @@ Get-FileHash .\VirtualHead-0.1.0-alpha.8-windows-x64.zip -Algorithm SHA256
 プロパティに解除項目がない場合は、SHA-256確認後にPowerShellで次を実行し、ZIPを展開し直せます。
 
 ```powershell
-Unblock-File -LiteralPath .\VirtualHead-0.1.0-alpha.8-windows-x64.zip
+Unblock-File -LiteralPath .\VirtualHead-0.1.0-alpha.10-windows-x64.zip
 ```
 
 SmartScreen自体を無効にする必要はありません。「実行」が表示されず、Windows 11のSmart App Controlがブロックしている場合、この未署名版をファイル単位で許可する方法はありません。PC全体の保護機能を無効にすることは推奨しません。
@@ -83,13 +92,13 @@ SmartScreen自体を無効にする必要はありません。「実行」が表
 - カメラのリアルタイムプレビューと録画
 - Minecraft互換Skin PNGの頭部6面と髪・帽子レイヤー
 - 頭の大きさ、位置、固定Pitch、追従平滑化の調整
-- DirectML対応GPUを利用し、利用できないPCではCPUへ自動切替（0.1.0-alpha.9）
+- DirectML対応GPUを利用し、利用できないPCではCPUへ自動切替
 - 画像・動画・モデルの入力検査と既知モデルのSHA-256照合
 - 映像処理はPC内で完結。アカウント、広告、遠隔測定なし
 
 ## GPUの自動利用
 
-0.1.0-alpha.9では、標準検出器をDirectML対応のYOLOv9-t Wholebody34へ変更します。「自動（GPU優先）」では同梱ランタイムが利用できるGPUを使い、利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
+0.1.0-alpha.10では、標準検出器にDirectML対応のYOLOv9-t Wholebody34を使用します。「自動（GPU優先）」では同梱ランタイムが利用できるGPUを使い、利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
 
 DirectML版はDirectX 12対応のNVIDIA、AMD、Intel GPUを利用でき、CUDA Toolkitの追加導入は不要です。診断用に「DirectML固定」も選択できます。
 

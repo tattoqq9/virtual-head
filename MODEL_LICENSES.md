@@ -11,6 +11,7 @@ Virtual Headの頭部検出・回転角推定は、PINTO0309氏（Katsuya Hyodo�
 - [High-Angle Robust Fast Face Alignment（HRFFA）](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment)
 - [HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)
 - [YOLO-Wholebody34](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)
+- [Gold-YOLO-Head](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)（任意検出器）
 - [PINTO0309 / YOLO](https://github.com/PINTO0309/YOLO)
 - [YawNet](https://github.com/PINTO0309/YawNet)
 - [YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)
@@ -23,6 +24,12 @@ Virtual Headの頭部検出・回転角推定は、PINTO0309氏（Katsuya Hyodo�
 |---|---|---|
 | 頭部検出 | `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | [YOLO-Wholebody34のモデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)、[同フォルダのLICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE)、[HRFFA weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights) |
 | 頭部回転角 | `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | [YawNet](https://github.com/PINTO0309/YawNet)、[YawNet LICENSE](https://github.com/PINTO0309/YawNet/blob/main/LICENSE)、[YawNet resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources) |
+
+## 任意のGold-YOLO-N Head
+
+Virtual Head 0.1.0-alpha.10以降は、Gold-YOLO-N Headの固定入力ONNXを外部モデルとして選択できます。推奨した試験ファイルは`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`です。モデルはVirtual HeadのZIP、標準ダウンロード、GitHub Releaseへ含めません。
+
+公式の`421_Gold-YOLO-Head`フォルダにはGPL-3.0の`LICENSE`が置かれています。利用者は[モデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)、[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)、[公式ダウンロードスクリプト](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/download_n.sh)を確認し、自分の用途での使用、商用利用、改変、配布の可否を判断してください。アプリがONNX形式に対応していることは、モデルに対する権利や許諾を意味しません。
 
 固定している容量とSHA-256は、ダウンロードしたファイルがVirtual Headで検証したファイルと同一かを確認するための情報です。ライセンスの適用範囲や利用許諾を証明するものではありません。
 

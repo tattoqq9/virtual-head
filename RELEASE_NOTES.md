@@ -1,4 +1,28 @@
-# 0.1.0-alpha.9（準備中）
+# 0.1.0-alpha.10（準備中）
+
+- Gold-YOLO-N Headの生出力版`[1,A,6]`と後処理済み版`[N,7]`に対応
+- 192×320生出力版で現在のテスト動画341/341フレームを検出
+- 検出器単体の中央値はDirectML 1.32ms、CPU 4.55ms
+- Windows配布ランタイムをONNX Runtime DirectML 1.24.4へ固定
+- Gold-YOLO-Nは外部モデル選択のみ。モデル本体はZIPや標準ダウンロードへ含めない
+- Gold-YOLO-Headの公式説明、GPL-3.0 LICENSE、性能比較へのリンクを追加
+- 配布ZIPは約100.7MB、モデル重みと第三者Skinを含まない
+- 55件の自動テスト、完成EXEのGUI起動、Gold-YOLO-NとYawNetのDirectML実行を確認
+
+## ダウンロード
+
+- `VirtualHead-0.1.0-alpha.10-windows-x64.zip`
+- `VirtualHead-0.1.0-alpha.10-windows-x64.zip.sha256`
+
+SHA-256：
+
+```text
+5c0a82ecc4cc37684ec3f97cd22c95444fc5adccb87783fee8c3e39a53a7ce2d
+```
+
+Gold-YOLO-Nのモデルは別途、公式配布元とライセンスを確認して取得してください。標準モデルを使う場合は、従来どおりアプリ内の「標準モデルをダウンロード」を使用できます。
+
+# 0.1.0-alpha.9（未公開）
 
 - 標準の頭部検出器を約8.2MBの`yolov9_t_wholebody34_0100_1x3x640x640.onnx`へ変更
 - YOLOv9-tとYawNet 128の合計ダウンロード量を約80MBから約11MBへ削減

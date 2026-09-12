@@ -4,6 +4,18 @@
   "models": [
     {
       "role": "detector",
+      "filename": "yolov9_t_wholebody34_0100_1x3x640x640.onnx",
+      "bytes": 8192670,
+      "sha256": "7dd9b514426b33423ffbc4e22fb6127f2145686441f2c398170585363c009575"
+    },
+    {
+      "role": "detector",
+      "filename": "gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx",
+      "bytes": 22516137,
+      "sha256": "b52e639ce8a5d2cf5a70aeede7f94c830583558cf8563d4e908e04b7a109e452"
+    },
+    {
+      "role": "detector",
       "filename": "deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
       "bytes": 76165766,
       "sha256": "b0ff4c4837f3fb079c64850b8c3cd9d0b7fcf620ef7902c942e728935b428ddd"

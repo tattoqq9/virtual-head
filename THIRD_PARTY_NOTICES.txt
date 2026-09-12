@@ -1,4 +1,4 @@
-Virtual Head 0.1.0-alpha.9 — Third-party notices
+Virtual Head 0.1.0-alpha.10 — Third-party notices
 Audit date: 2026-09-12
 
 This file is a readable index. The complete license and notice texts collected
@@ -31,6 +31,12 @@ YawNet (head-yaw ONNX model offered as a first-use download)
   Source: https://github.com/PINTO0309/YawNet
   Full text: licenses/YAWNET_LICENSE.txt
 
+Gold-YOLO-Head N (optional user-supplied head-detection ONNX model)
+  Distributed by Virtual Head: no
+  Official folder license: GPL-3.0; users must review the model-specific terms
+  Source: https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head
+  License: https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE
+
 Python 3.13
   License: Python Software Foundation License Version 2 and bundled notices
   Source: https://www.python.org/
@@ -59,11 +65,11 @@ Pillow 12.3.0
   Source: https://python-pillow.github.io/
   Full texts: licenses/Pillow/
 
-ONNX Runtime GPU 1.26.0
+ONNX Runtime DirectML 1.24.4
   Copyright (c) Microsoft Corporation
   License: MIT, with third-party notices
   Source: https://github.com/microsoft/onnxruntime
-  Full texts: licenses/onnxruntime-gpu/
+  Full texts: licenses/onnxruntime-directml/
 
 PyInstaller 6.22.2
   License: GPL-2.0-or-later with the PyInstaller Bootloader Exception; runtime
@@ -97,7 +103,7 @@ for user-initiated downloads from the author's official GitHub Releases. Each us
 must review the official project, release, and license pages and decide whether
 the intended use is permitted. The copies in licenses/ are supplied only as review
 aids; Virtual Head does not determine or guarantee their applicability to model
-weights. Alpha.9 uses verified first-run downloads as its release design. A private
+weights. Alpha.10 uses verified first-run downloads as its release design. A private
 local test build may still contain the two models listed in
 MODEL_BUNDLE_PLAN.json and is marked DO NOT REDISTRIBUTE. Public and private
 bundles do not include third-party Minecraft skin files, VRM/MMD/FBX assets, a

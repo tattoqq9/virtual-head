@@ -72,6 +72,7 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <div class="shot"><img src="guide/images/05_models.png" alt="モデル設定">
 <ol class="legend"><li><span class="n">1</span><span>取得済みの頭部検出ONNXを表示します。自作モデルを試す場合だけ変更します。</span></li><li><span class="n">2</span><span>取得済みの回転角ONNXを表示します。</span></li><li><span class="n">3</span><span>初回は「標準モデルをダウンロード」を押します。公式Releaseから約11MBを取得し、容量とSHA-256の検証後に自動設定します。</span></li><li><span class="n">4</span><span>通常は「自動（GPU優先）」を使います。DirectML版ではDirectX 12対応GPUを利用でき、使えない場合はCPUへ自動で切り替わります。</span></li><li><span class="n">5</span><span>CUDA版を使用し、CUDA DLLが自動検出されない場合だけフォルダを指定します。</span></li><li><span class="n">6</span><span>Roll補助が必要な場合だけランドマークを有効にします。補助モデルは自動取得しません。</span></li><li><span class="n">7</span><span>音声付きH.264保存にはFFmpegを指定します。</span></li></ol></div>
 <div class="warning">標準モデルの重みはVirtual Headとは別の第三者著作物です。「ライセンス・情報」から各公式配布元と条件を開き、予定する利用・商用利用・再配布が許可されるかをご自身で判断してください。ダウンロード機能は権利や許諾を保証しません。</div>
+<p>任意でGold-YOLO-N Headを使う場合は、公式配布元から取得した固定入力ONNXを「頭部検出モデル」で選択します。16:9映像では<code>gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx</code>を確認済みです。このモデルは標準ダウンロードには含まれません。公式フォルダのGPL-3.0ライセンスとモデル固有の条件を利用者自身で確認してください。</p>
 
 <h2>頭の見た目を調整する</h2>
 <div class="shot"><img src="guide/images/06_appearance.png" alt="見た目の調整">
@@ -86,6 +87,6 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <p>診断ログは<code>%LOCALAPPDATA%\VirtualHead\app.log</code>、実行結果は出力先の<code>run.json</code>にあります。</p>
 <p class="note">映像、画像、SkinはPC内で処理され、外部へ送信されません。標準モデルの取得を選んだ場合だけGitHubへHTTPS接続します。これは非公式アプリであり、MojangまたはMicrosoftの承認・提携を受けていません。</p>
 </main>
-<footer>Virtual Head 0.1.0-alpha.9 — Copyright © 2026 tatto</footer>
+<footer>Virtual Head 0.1.0-alpha.10 — Copyright © 2026 tatto</footer>
 </body>
 </html>
