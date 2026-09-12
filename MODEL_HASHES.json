@@ -33,6 +33,12 @@
       "sha256": "ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6"
     },
     {
+      "role": "orientation",
+      "filename": "yawnet_distill_064_unified_v6u_kappa_1x3x64x64.onnx",
+      "bytes": 3079649,
+      "sha256": "201cb190c512dfe5f6fa0518afe439e122d41c80514253e91276c889d5810660"
+    },
+    {
       "role": "aligner",
       "filename": "hrffa_vitl_ibug68_1x3x320x320.onnx",
       "bytes": 1231653123,

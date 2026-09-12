@@ -1,6 +1,6 @@
 # モデル重みの利用条件について
 
-更新日：2026-09-12
+更新日：2026-09-13
 
 Virtual Headの公開ZIPには学習済みONNXモデルを含めません。「標準モデルをダウンロード」を押した場合だけ、各モデルの公式GitHub Releaseから利用者のPCへ直接取得します。
 
@@ -31,12 +31,20 @@ Virtual Head 0.1.0-alpha.10以降は、Gold-YOLO-N Headの固定入力ONNXを外
 
 公式の`421_Gold-YOLO-Head`フォルダにはGPL-3.0の`LICENSE`が置かれています。利用者は[モデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)、[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)、[公式ダウンロードスクリプト](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/download_n.sh)を確認し、自分の用途での使用、商用利用、改変、配布の可否を判断してください。アプリがONNX形式に対応していることは、モデルに対する権利や許諾を意味しません。
 
+## ドロップダウンから選べる外部モデル
+
+Gold以外に、DEIMv2 DINOv3-S、DEIMv2 DINOv3-X、YawNet 64を選択肢として表示します。これらもアプリや標準ダウンロードには含めません。DEIMv2は[HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)と元リポジトリ、YawNet 64は[YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)とYawNetのライセンスを確認してください。
+
 固定している容量とSHA-256は、ダウンロードしたファイルがVirtual Headで検証したファイルと同一かを確認するための情報です。ライセンスの適用範囲や利用許諾を証明するものではありません。
 
 | ファイル | 容量 | SHA-256 |
 |---|---:|---|
 | `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | 8,192,670 bytes | `7dd9b514426b33423ffbc4e22fb6127f2145686441f2c398170585363c009575` |
 | `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | 3,078,957 bytes | `ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6` |
+| `yawnet_distill_064_unified_v6u_kappa_1x3x64x64.onnx` | 3,079,649 bytes | `201cb190c512dfe5f6fa0518afe439e122d41c80514253e91276c889d5810660` |
+| `gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx` | 22,516,137 bytes | `b52e639ce8a5d2cf5a70aeede7f94c830583558cf8563d4e908e04b7a109e452` |
+| `deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx` | 76,165,766 bytes | `b0ff4c4837f3fb079c64850b8c3cd9d0b7fcf620ef7902c942e728935b428ddd` |
+| `deimv2_dinov3_x_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx` | 240,303,551 bytes | `c35c01b50835b42b09c98f0656336a5668181d2561600edf8ee288ece16088df` |
 
 `licenses/YOLO_WHOLEBODY34_LICENSE.txt`と`licenses/YAWNET_LICENSE.txt`は、確認を助けるため各公式リポジトリから取得したライセンス文の写しです。これらを同梱しても、その文面が学習済み重みや利用者の用途へ適用されるとVirtual Headが判断・保証するものではありません。公式側の表示が更新された場合は公式情報を優先してください。
 
