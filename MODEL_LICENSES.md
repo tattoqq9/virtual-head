@@ -4,6 +4,17 @@
 
 Virtual Headの公開ZIPには学習済みONNXモデルを含めません。「標準モデルをダウンロード」を押した場合だけ、各モデルの公式GitHub Releaseから利用者のPCへ直接取得します。
 
+## 使用モデルと謝辞
+
+Virtual Headの頭部検出・回転角推定は、PINTO0309氏（Katsuya Hyodo氏）が公開しているプロジェクトとモデルを利用しています。研究・実装・モデル公開に感謝します。
+
+- [High-Angle Robust Fast Face Alignment（HRFFA）](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment)
+- [HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)
+- [YOLO-Wholebody34](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)
+- [PINTO0309 / YOLO](https://github.com/PINTO0309/YOLO)
+- [YawNet](https://github.com/PINTO0309/YawNet)
+- [YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)
+
 モデル重みはVirtual Headとは別の著作物です。Virtual Headおよびtattoは、各モデル重みのライセンス解釈、利用、商用利用、改変、再配布が特定の用途で許可されることを保証しません。ダウンロード前に、利用者自身が公式配布ページ、リポジトリのライセンス、モデル固有の説明、学習データ等の条件を確認し、使用可否を判断してください。アプリのダウンロード機能は取得と改ざん検知を補助するだけで、権利や許諾を付与しません。
 
 ## 標準モデルと確認先

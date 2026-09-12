@@ -4,6 +4,8 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 
 ![Virtual Headの画面](guide/images/01_overview.png)
 
+**[最新版のWindows ZIPをReleaseページから取得する](https://github.com/tattoqq9/virtual-head/releases)**
+
 > [!WARNING]
 > 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。モデル重みの利用条件は、各利用者が[公式確認先の一覧](MODEL_LICENSES.md)から確認して判断してください。
 
@@ -28,6 +30,19 @@ Windows x64用です。Pythonのインストールは不要です。
 4. 入力とSkinを選び、「開始」を押します。
 
 標準モデルの取得は利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
+
+## 使用モデルと謝辞
+
+頭部検出・回転角推定には、PINTO0309氏（Katsuya Hyodo氏）が公開しているプロジェクトとモデルを利用しています。研究・実装・モデル公開に感謝します。
+
+- [High-Angle Robust Fast Face Alignment（HRFFA）](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment)
+- [HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)
+- [YOLO-Wholebody34](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)
+- [PINTO0309 / YOLO](https://github.com/PINTO0309/YOLO)
+- [YawNet](https://github.com/PINTO0309/YawNet)
+- [YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)
+
+モデル重みの条件は[公式確認先の一覧](MODEL_LICENSES.md)から各利用者が確認してください。
 
 ## SmartScreenの警告
 
