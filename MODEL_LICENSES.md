@@ -1,28 +1,40 @@
-# モデル・素材の配布条件
+# モデル・素材のライセンス
 
-調査日：2026-09-09
+調査日：2026-09-12
 
-公開ZIPにはONNXを含めません。alpha.7は利用者の操作でPINTO0309氏の公式weights Releaseから固定URLの2モデルを直接取得し、容量とSHA-256を検証します。公開用のモデル同梱ビルドは`MODEL_BUNDLE_PLAN.json`の許諾記録が揃うまで失敗する設計です。コードのライセンスと学習済み重みの条件は別です。
+Virtual Head 0.1.0-alpha.9の公開ZIPにはONNXを含めません。利用者がアプリの「標準モデルをダウンロード」を押した場合だけ、PINTO0309氏の公式GitHub Releaseから次の2ファイルを取得します。取得後は容量とSHA-256を検証し、一致しないファイルは使用しません。
 
-| 対象 | 確認できた情報 | Windows ZIPへの判断 |
+| 用途 | 標準モデル | ライセンスと根拠 |
 |---|---|---|
-| `vendor/hrffa_onnx.py` | 元リポジトリのコードはMIT、Copyright (c) 2026 Katsuya Hyodo | MIT全文を同梱して配布可 |
-| `deimv2_*wholebody49*.onnx` | 配布元のPINTO_model_zoo `488_DEIMv2-Wholebody49/LICENSE`はApache-2.0を明記。一方、現在のDEIMv2本家は非商用限定で、DINOv3由来物にはDINOv3条件も関係する | 約76MBのS版を同梱候補にした。モデル固有表示と上流条件の関係を配布者へ確認するまで公開ZIPへ入れない |
-| `yawnet_distill_*.onnx` | YawNetはHRFFA公式weights releaseで配布されているが、READMEはコードをMITとしつつ派生重みの条件確認を求めている。使用中の重み単体のライセンス表示はない | 約3MBの128版を同梱候補にした。権利者から配布条件を確認するまで公開ZIPへ入れない |
-| `hrffa_*.onnx` | コードはMIT。HRFFA READMEはDINOv3/DEIMv2由来重みについて、学習済みHRFFA重み・ONNXを配る前に派生物条件を確認するよう明記 | 派生重みの条件確認が終わるまで未同梱 |
-| DINOv3公式教師重み | DINOv3独自ライセンスは同条件での再配布を認めるが、制約・補償条項がある。HRFFAは教師重みを同梱しない | Virtual Headには教師重み自体を同梱しない。派生重みに適用される条件は権利者へ確認 |
-| `yolov9_{n,t}_wholebody34_*.onnx` | HRFFA READMEは、PINTO0309/YOLOによるMIT実装で学習したモデルとして再配布可能と明記 | 将来の小型検出器候補。現Windowsバックエンドとの入出力互換対応・精度試験・MIT表示を終えてから採用 |
-| Minecraft Skin PNG | 画像ごとに作者・キャラクター権利・配布条件が異なる | 手続き生成の標準頭部だけを同梱。第三者Skinは権利確認なしに同梱しない |
-| VRM / MMD / FBX | モデルごとの利用規約に従う。Windows版の製品機能には未採用 | 同梱しない |
+| 頭部検出 | `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | MIT。`471_YOLO-Wholebody34`はモデルをMITと明記し、同フォルダにMIT全文を掲載。HRFFAも、この系列を公式GPL版ではなくPINTO0309氏のMIT版YOLO実装で学習した再配布可能なモデルと説明 |
+| 頭部回転角 | `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | MIT。YawNet公式リポジトリはMITを明記し、公式`resources` ReleaseでこのONNXを配布。Virtual Headで固定したファイルと公式YawNet版は容量3,078,957 bytes、SHA-256 `ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6`が一致 |
+| 推論コード | `vendor/hrffa_onnx.py` | MIT、Copyright (c) 2026 Katsuya Hyodo |
+
+MITは利用、変更、複製、配布、サブライセンス、販売を認めます。再配布時は著作権表示とMIT許諾文を残す必要があります。Virtual Headは次の原文をアプリ内と配布フォルダの`licenses`に収録します。
+
+- `YOLO_WHOLEBODY34_LICENSE.txt`：Copyright (c) 2024 Kin-Yiu, Wong and Hao-Tang, Tsui／Copyright (c) 2025 Katsuya Hyodo
+- `YAWNET_LICENSE.txt`：Copyright (c) 2026 Katsuya Hyodo
+- `HRFFA_LICENSE.txt`：Copyright (c) 2026 Katsuya Hyodo
+
+今回選んだYOLOv9-tは、公式の`WongKinYiu/yolov9`を直接利用したGPL版モデルではありません。PINTO0309氏のMIT版実装で学習されたWholebody34モデルです。別リポジトリや別ファイルにGPL-3.0と表示されたYOLOv9モデルへ差し替える場合、その条件は自動的には引き継がれないため、配布前に個別確認が必要です。
+
+標準以外のモデルについては、ファイルごとの条件が優先されます。
+
+| 対象 | 配布方針 |
+|---|---|
+| `deimv2_*wholebody49*.onnx`、`hrffa_*.onnx`、DINOv3由来モデル | 標準配布には使用しない。各モデル・学習元・教師モデルの条件を確認してから扱う |
+| 利用者が選ぶ自作・第三者ONNX | Virtual Headは権利を付与しない。利用者が正当に入手した互換モデルだけを指定する |
+| Minecraft互換Skin PNG | 画像ごとに作者・キャラクター権利・配布条件が異なる。第三者Skinは同梱しない |
+| VRM / MMD / FBX | モデルごとの利用規約に従う。現在のWindows製品版には同梱しない |
 
 参照先：
 
-- HRFFAコード・重みの説明・ライセンス：https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment
-- HRFFA weights release：https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights
-- DINOv3 License：https://github.com/facebookresearch/dinov3/blob/main/LICENSE.md
-- DEIMv2：https://github.com/Intellindust-AI-Lab/DEIMv2
-- DEIMv2-Wholebody49固有ライセンス：https://github.com/PINTO0309/PINTO_model_zoo/blob/main/488_DEIMv2-Wholebody49/LICENSE
-- MIT版YOLOv9実装：https://github.com/PINTO0309/YOLO
-- YOLOv9-Wholebody34：https://github.com/PINTO0309/PINTO_model_zoo/tree/main/455_YOLOv9-Wholebody34
+- YOLO-Wholebody34説明・モデルのMIT表示：https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34
+- YOLO-Wholebody34ライセンス原文：https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE
+- MIT版YOLO実装：https://github.com/PINTO0309/YOLO
+- HRFFAのモデル説明・公式weights：https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment
+- YawNet説明・MIT表示：https://github.com/PINTO0309/YawNet
+- YawNetライセンス原文：https://github.com/PINTO0309/YawNet/blob/main/LICENSE
+- YawNet公式resources Release：https://github.com/PINTO0309/YawNet/releases/tag/resources
 
-モデルを同梱する版を作るときは、モデル名・取得元・バージョンまたはSHA-256・ライセンス全文・NOTICE・変更内容を配布物へ追加します。モデルを自動ダウンロードする場合も、取得先の規約と、利用者へのライセンス提示・同意要件を確認します。
+この記録は確認時点の配布条件をまとめたものです。標準モデルのURL、ファイル、ハッシュ、上流ライセンスが変わった場合は、次のRelease前に再確認します。

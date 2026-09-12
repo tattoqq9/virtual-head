@@ -1,3 +1,13 @@
+# 0.1.0-alpha.9（準備中）
+
+- 標準の頭部検出器を約8.2MBの`yolov9_t_wholebody34_0100_1x3x640x640.onnx`へ変更
+- YOLOv9-tとYawNet 128の合計ダウンロード量を約80MBから約11MBへ削減
+- DirectMLで頭部検出とYawNetをGPU実行できるようにし、NVIDIA、AMD、IntelのDirectX 12対応GPUを対象化
+- YOLO-Wholebody34とYawNetの公式MIT表示を確認し、著作権表示とライセンス原文を追加
+- ダウンロード元を公式Releaseへ固定し、容量・SHA-256検証を継続
+
+使用するYOLOv9-tはPINTO0309氏のMIT版YOLO実装で学習されたWholebody34モデルです。GPL-3.0で公開されている別系統のYOLOv9モデルは使用していません。
+
 # 0.1.0-alpha.8
 
 別PCでの初回利用に必要な案内を追加し、NVIDIA GPUを優先する自動実行モードを初期値にしました。

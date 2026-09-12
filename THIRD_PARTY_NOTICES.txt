@@ -1,5 +1,5 @@
-Virtual Head 0.1.0-alpha.7 — Third-party notices
-Audit date: 2026-09-09
+Virtual Head 0.1.0-alpha.9 — Third-party notices
+Audit date: 2026-09-12
 
 This file is a readable index. The complete license and notice texts collected
 from the installed distributions are in the licenses directory of the Windows
@@ -15,6 +15,19 @@ High-Angle Robust Fast Face Alignment (vendored ONNX inference code)
   License: MIT
   Source: https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment
   Full text: HRFFA_LICENSE.txt and licenses/HRFFA_LICENSE.txt
+
+YOLO-Wholebody34 T (head-detection ONNX model downloaded on first use)
+  Copyright (c) 2024 Kin-Yiu, Wong and Hao-Tang, Tsui
+  Copyright (c) 2025 Katsuya Hyodo
+  License: MIT
+  Source: https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34
+  Full text: licenses/YOLO_WHOLEBODY34_LICENSE.txt
+
+YawNet (head-yaw ONNX model downloaded on first use)
+  Copyright (c) 2026 Katsuya Hyodo
+  License: MIT
+  Source: https://github.com/PINTO0309/YawNet
+  Full text: licenses/YAWNET_LICENSE.txt
 
 Python 3.13
   License: Python Software Foundation License Version 2 and bundled notices
@@ -77,11 +90,12 @@ Supporting Python packages collected by the build environment
 MODEL AND ASSET BUNDLE STATUS
 
 The public distribution does not include ONNX model weights. MODEL_DOWNLOADS.json
-contains pinned URLs, sizes, and SHA-256 values for user-initiated downloads
-from the author's official GitHub Release. An alpha.7 private local test build
-may contain the two models listed in MODEL_BUNDLE_PLAN.json and is marked DO NOT
-REDISTRIBUTE. Public model bundling is blocked until written redistribution
-terms are recorded. Public and private
+contains pinned URLs, sizes, SHA-256 values, project URLs, and license references
+for user-initiated downloads from the author's official GitHub Releases. The two
+standard models are published under MIT terms; their complete notices are included
+above and in licenses/. Alpha.9 uses verified first-run downloads as its release
+design. A private local test build may still contain the two models listed in
+MODEL_BUNDLE_PLAN.json and is marked DO NOT REDISTRIBUTE. Public and private
 bundles do not include third-party Minecraft skin files, VRM/MMD/FBX assets, a
 standalone ffmpeg.exe, NVIDIA CUDA/cuDNN/TensorRT libraries, source/test videos,
 user settings, or generated outputs. OpenCV's internal FFmpeg video I/O binary

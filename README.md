@@ -5,7 +5,7 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 ![Virtual Headの画面](guide/images/01_overview.png)
 
 > [!WARNING]
-> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。商用利用を予定する場合は、先に[モデルの条件](MODEL_LICENSES.md)を確認してください。
+> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。標準のYOLO-Wholebody34とYawNetはMITライセンスです。著作権表示と全文は[モデルの条件](MODEL_LICENSES.md)で確認できます。
 
 ## ダウンロード
 
@@ -24,7 +24,7 @@ Windows x64用です。Pythonのインストールは不要です。
 
 1. 「モデル」タブを開きます。
 2. 「標準モデルをダウンロード」を押します。
-3. 約80MBの頭部検出モデルとYawNetを公式配布元から取得し、容量とSHA-256を検証して自動設定します。
+3. 合計約11MBのYOLOv9-t頭部検出モデルとYawNetを公式配布元から取得し、容量とSHA-256を検証して自動設定します。
 4. 入力とSkinを選び、「開始」を押します。
 
 標準モデルの取得は利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
@@ -68,15 +68,15 @@ SmartScreen自体を無効にする必要はありません。「実行」が表
 - カメラのリアルタイムプレビューと録画
 - Minecraft互換Skin PNGの頭部6面と髪・帽子レイヤー
 - 頭の大きさ、位置、固定Pitch、追従平滑化の調整
-- NVIDIA CUDAを優先し、利用できないPCではCPUへ自動切替
+- DirectML対応GPUを利用し、利用できないPCではCPUへ自動切替（0.1.0-alpha.9）
 - 画像・動画・モデルの入力検査と既知モデルのSHA-256照合
 - 映像処理はPC内で完結。アカウント、広告、遠隔測定なし
 
 ## GPUの自動利用
 
-alpha.8から「自動（GPU優先）」が初期値です。NVIDIA CUDAを初期化できれば、頭部検出とYawNetの両方でGPUを使います。利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
+0.1.0-alpha.9では、標準検出器をDirectML対応のYOLOv9-t Wholebody34へ変更します。「自動（GPU優先）」では同梱ランタイムが利用できるGPUを使い、利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
 
-CUDA実行にはNVIDIAドライバー、CUDA 12.x、cuDNN 9.xが必要です。大容量になるためCUDA/cuDNNはZIPへ同梱していません。導入後も自動検出されない場合は、「モデル」タブのCUDA DLLフォルダにランタイムDLLのある場所を指定します。対応条件は[ONNX Runtime CUDA公式説明](https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html)を参照してください。AMD・Intel GPU向けDirectMLも検証しましたが、現在の頭部検出モデルに非対応の演算があるため、この版では使用しません。
+DirectML版はDirectX 12対応のNVIDIA、AMD、Intel GPUを利用でき、CUDA Toolkitの追加導入は不要です。診断用に「DirectML固定」も選択できます。
 
 ![モデルとGPU設定](guide/images/05_models.png)
 
