@@ -5,7 +5,7 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 ![Virtual Headの画面](guide/images/01_overview.png)
 
 > [!WARNING]
-> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。標準のYOLO-Wholebody34とYawNetはMITライセンスです。著作権表示と全文は[モデルの条件](MODEL_LICENSES.md)で確認できます。
+> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。モデル重みの利用条件は、各利用者が[公式確認先の一覧](MODEL_LICENSES.md)から確認して判断してください。
 
 ## ダウンロード
 
@@ -122,10 +122,10 @@ DirectML版はDirectX 12対応のNVIDIA、AMD、Intel GPUを利用でき、CUDA 
 
 不具合は[GitHub Issues](https://github.com/tattoqq9/virtual-head/issues)へ報告できます。ログや`run.json`にはローカルのユーザー名やファイルパスが含まれる場合があるため、公開前に内容を確認してください。未修正の脆弱性は公開Issueではなく、[GitHubの非公開Security Advisory](https://github.com/tattoqq9/virtual-head/security/advisories/new)から報告してください。
 
-## ライセンスと権利表示
+## 権利表示
 
-Virtual Head本体は[MIT License](LICENSE)、Copyright © 2026 tattoです。この公開リポジトリはバイナリ配布と問題報告用で、開発ソースコードは含みません。
+Virtual Head本体は非公開ソースのプロプライエタリソフトウェア、Copyright © 2026 tattoです。この公開リポジトリはバイナリ配布と問題報告用で、開発ソースコードとオープンソースライセンスは公開していません。詳細は[COPYRIGHT_NOTICE.txt](COPYRIGHT_NOTICE.txt)を確認してください。
 
-第三者コードとライブラリはそれぞれのライセンスに従います。[THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt)と配布ZIP内の`licenses`を確認してください。モデルと素材の条件は[MODEL_LICENSES.md](MODEL_LICENSES.md)にまとめています。
+第三者コードとライブラリはそれぞれのライセンスに従います。[THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt)と配布ZIP内の`licenses`を確認してください。モデル重みについてVirtual Headは利用可否を判断・保証しません。[MODEL_LICENSES.md](MODEL_LICENSES.md)にある公式情報を利用者自身で確認してください。
 
 Virtual Headは公式Minecraft製品ではなく、MojangまたはMicrosoftの承認・提携を受けていません。Minecraftの名称は、利用者が用意する互換Skin PNG形式の説明として使用しています。公式素材は配布物に含みません。

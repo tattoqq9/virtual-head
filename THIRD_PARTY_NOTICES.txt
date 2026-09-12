@@ -5,8 +5,10 @@ This file is a readable index. The complete license and notice texts collected
 from the installed distributions are in the licenses directory of the Windows
 bundle. If this index and a license text differ, the license text controls.
 
-The original Virtual Head application is licensed under the MIT License. Its
-source code is not included in the Windows binary distribution. See LICENSE.txt.
+The original Virtual Head application is proprietary software, Copyright (c)
+2026 tatto. Its source code and an open-source license are not published. See
+COPYRIGHT_NOTICE.txt. The notices below apply only to their respective
+third-party components.
 
 COMPONENTS USED BY THE WINDOWS APPLICATION
 
@@ -16,16 +18,16 @@ High-Angle Robust Fast Face Alignment (vendored ONNX inference code)
   Source: https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment
   Full text: HRFFA_LICENSE.txt and licenses/HRFFA_LICENSE.txt
 
-YOLO-Wholebody34 T (head-detection ONNX model downloaded on first use)
+YOLO-Wholebody34 T (head-detection ONNX model offered as a first-use download)
   Copyright (c) 2024 Kin-Yiu, Wong and Hao-Tang, Tsui
   Copyright (c) 2025 Katsuya Hyodo
-  License: MIT
+  Upstream license page: review before downloading or using the model weight
   Source: https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34
   Full text: licenses/YOLO_WHOLEBODY34_LICENSE.txt
 
-YawNet (head-yaw ONNX model downloaded on first use)
+YawNet (head-yaw ONNX model offered as a first-use download)
   Copyright (c) 2026 Katsuya Hyodo
-  License: MIT
+  Upstream license page: review before downloading or using the model weight
   Source: https://github.com/PINTO0309/YawNet
   Full text: licenses/YAWNET_LICENSE.txt
 
@@ -91,10 +93,12 @@ MODEL AND ASSET BUNDLE STATUS
 
 The public distribution does not include ONNX model weights. MODEL_DOWNLOADS.json
 contains pinned URLs, sizes, SHA-256 values, project URLs, and license references
-for user-initiated downloads from the author's official GitHub Releases. The two
-standard models are published under MIT terms; their complete notices are included
-above and in licenses/. Alpha.9 uses verified first-run downloads as its release
-design. A private local test build may still contain the two models listed in
+for user-initiated downloads from the author's official GitHub Releases. Each user
+must review the official project, release, and license pages and decide whether
+the intended use is permitted. The copies in licenses/ are supplied only as review
+aids; Virtual Head does not determine or guarantee their applicability to model
+weights. Alpha.9 uses verified first-run downloads as its release design. A private
+local test build may still contain the two models listed in
 MODEL_BUNDLE_PLAN.json and is marked DO NOT REDISTRIBUTE. Public and private
 bundles do not include third-party Minecraft skin files, VRM/MMD/FBX assets, a
 standalone ffmpeg.exe, NVIDIA CUDA/cuDNN/TensorRT libraries, source/test videos,

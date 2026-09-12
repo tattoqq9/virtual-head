@@ -1,0 +1,18 @@
+Virtual Head — Copyright Notice
+
+Copyright (c) 2026 tatto. All rights reserved.
+
+Virtual Head is proprietary software. Its source code is not published, and no
+open-source license is granted for the Virtual Head application or the original
+content of its distribution repository.
+
+The unmodified official binary may be run for its intended purpose. Permission
+to modify, redistribute, sublicense, sell, or reverse engineer Virtual Head is
+not granted. Separate third-party components remain subject to their own
+licenses and notices. See THIRD_PARTY_NOTICES.txt and MODEL_LICENSES.md.
+
+This notice does not change or restrict any rights granted by the copyright
+holders of third-party components.
+
+This notice applies to versions distributed with this notice. It does not
+retroactively revoke a license that accompanied an earlier release.

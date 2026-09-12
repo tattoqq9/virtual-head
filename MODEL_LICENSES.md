@@ -1,40 +1,29 @@
-# モデル・素材のライセンス
+# モデル重みの利用条件について
 
-調査日：2026-09-12
+更新日：2026-09-12
 
-Virtual Head 0.1.0-alpha.9の公開ZIPにはONNXを含めません。利用者がアプリの「標準モデルをダウンロード」を押した場合だけ、PINTO0309氏の公式GitHub Releaseから次の2ファイルを取得します。取得後は容量とSHA-256を検証し、一致しないファイルは使用しません。
+Virtual Headの公開ZIPには学習済みONNXモデルを含めません。「標準モデルをダウンロード」を押した場合だけ、各モデルの公式GitHub Releaseから利用者のPCへ直接取得します。
 
-| 用途 | 標準モデル | ライセンスと根拠 |
+モデル重みはVirtual Headとは別の著作物です。Virtual Headおよびtattoは、各モデル重みのライセンス解釈、利用、商用利用、改変、再配布が特定の用途で許可されることを保証しません。ダウンロード前に、利用者自身が公式配布ページ、リポジトリのライセンス、モデル固有の説明、学習データ等の条件を確認し、使用可否を判断してください。アプリのダウンロード機能は取得と改ざん検知を補助するだけで、権利や許諾を付与しません。
+
+## 標準モデルと確認先
+
+| 用途 | ダウンロードするファイル | 利用者が確認する公式情報 |
 |---|---|---|
-| 頭部検出 | `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | MIT。`471_YOLO-Wholebody34`はモデルをMITと明記し、同フォルダにMIT全文を掲載。HRFFAも、この系列を公式GPL版ではなくPINTO0309氏のMIT版YOLO実装で学習した再配布可能なモデルと説明 |
-| 頭部回転角 | `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | MIT。YawNet公式リポジトリはMITを明記し、公式`resources` ReleaseでこのONNXを配布。Virtual Headで固定したファイルと公式YawNet版は容量3,078,957 bytes、SHA-256 `ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6`が一致 |
-| 推論コード | `vendor/hrffa_onnx.py` | MIT、Copyright (c) 2026 Katsuya Hyodo |
+| 頭部検出 | `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | [YOLO-Wholebody34のモデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34)、[同フォルダのLICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE)、[HRFFA weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights) |
+| 頭部回転角 | `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | [YawNet](https://github.com/PINTO0309/YawNet)、[YawNet LICENSE](https://github.com/PINTO0309/YawNet/blob/main/LICENSE)、[YawNet resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources) |
 
-MITは利用、変更、複製、配布、サブライセンス、販売を認めます。再配布時は著作権表示とMIT許諾文を残す必要があります。Virtual Headは次の原文をアプリ内と配布フォルダの`licenses`に収録します。
+固定している容量とSHA-256は、ダウンロードしたファイルがVirtual Headで検証したファイルと同一かを確認するための情報です。ライセンスの適用範囲や利用許諾を証明するものではありません。
 
-- `YOLO_WHOLEBODY34_LICENSE.txt`：Copyright (c) 2024 Kin-Yiu, Wong and Hao-Tang, Tsui／Copyright (c) 2025 Katsuya Hyodo
-- `YAWNET_LICENSE.txt`：Copyright (c) 2026 Katsuya Hyodo
-- `HRFFA_LICENSE.txt`：Copyright (c) 2026 Katsuya Hyodo
+| ファイル | 容量 | SHA-256 |
+|---|---:|---|
+| `yolov9_t_wholebody34_0100_1x3x640x640.onnx` | 8,192,670 bytes | `7dd9b514426b33423ffbc4e22fb6127f2145686441f2c398170585363c009575` |
+| `yawnet_distill_128_unified_v6u_1x3x128x128.onnx` | 3,078,957 bytes | `ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6` |
 
-今回選んだYOLOv9-tは、公式の`WongKinYiu/yolov9`を直接利用したGPL版モデルではありません。PINTO0309氏のMIT版実装で学習されたWholebody34モデルです。別リポジトリや別ファイルにGPL-3.0と表示されたYOLOv9モデルへ差し替える場合、その条件は自動的には引き継がれないため、配布前に個別確認が必要です。
+`licenses/YOLO_WHOLEBODY34_LICENSE.txt`と`licenses/YAWNET_LICENSE.txt`は、確認を助けるため各公式リポジトリから取得したライセンス文の写しです。これらを同梱しても、その文面が学習済み重みや利用者の用途へ適用されるとVirtual Headが判断・保証するものではありません。公式側の表示が更新された場合は公式情報を優先してください。
 
-標準以外のモデルについては、ファイルごとの条件が優先されます。
+## その他のモデル・素材
 
-| 対象 | 配布方針 |
-|---|---|
-| `deimv2_*wholebody49*.onnx`、`hrffa_*.onnx`、DINOv3由来モデル | 標準配布には使用しない。各モデル・学習元・教師モデルの条件を確認してから扱う |
-| 利用者が選ぶ自作・第三者ONNX | Virtual Headは権利を付与しない。利用者が正当に入手した互換モデルだけを指定する |
-| Minecraft互換Skin PNG | 画像ごとに作者・キャラクター権利・配布条件が異なる。第三者Skinは同梱しない |
-| VRM / MMD / FBX | モデルごとの利用規約に従う。現在のWindows製品版には同梱しない |
-
-参照先：
-
-- YOLO-Wholebody34説明・モデルのMIT表示：https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34
-- YOLO-Wholebody34ライセンス原文：https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE
-- MIT版YOLO実装：https://github.com/PINTO0309/YOLO
-- HRFFAのモデル説明・公式weights：https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment
-- YawNet説明・MIT表示：https://github.com/PINTO0309/YawNet
-- YawNetライセンス原文：https://github.com/PINTO0309/YawNet/blob/main/LICENSE
-- YawNet公式resources Release：https://github.com/PINTO0309/YawNet/releases/tag/resources
-
-この記録は確認時点の配布条件をまとめたものです。標準モデルのURL、ファイル、ハッシュ、上流ライセンスが変わった場合は、次のRelease前に再確認します。
+- 自作または第三者のONNXを指定する場合も、入手元と利用条件を利用者自身で確認してください。
+- Minecraft互換Skin PNG、VRM、MMD、FBXは作品ごとに作者、キャラクター、配布、動画利用等の条件が異なります。Virtual Headは第三者素材を同梱しません。
+- `vendor/hrffa_onnx.py`など、アプリに組み込む第三者コードとライブラリの表示は`THIRD_PARTY_NOTICES.txt`を確認してください。

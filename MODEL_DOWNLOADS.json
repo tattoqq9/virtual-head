@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source_name": "PINTO0309 official GitHub releases",
   "source_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights",
-  "notice": "YOLO-Wholebody34 and YawNet are published as MIT-licensed projects by their authors. Copyright notices and complete license texts are included with Virtual Head; see MODEL_LICENSES.md.",
+  "notice": "Model weights are separate third-party works. Before downloading or using them, each user must review the official project, release, and license pages and decide whether the intended use is permitted. Virtual Head does not grant or guarantee model-weight rights; see MODEL_LICENSES.md.",
   "models": [
     {
       "role": "detector",
@@ -11,8 +11,7 @@
       "sha256": "7dd9b514426b33423ffbc4e22fb6127f2145686441f2c398170585363c009575",
       "url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/download/weights/yolov9_t_wholebody34_0100_1x3x640x640.onnx",
       "project_url": "https://github.com/PINTO0309/PINTO_model_zoo/tree/main/471_YOLO-Wholebody34",
-      "license": "MIT",
-      "license_file": "licenses/YOLO_WHOLEBODY34_LICENSE.txt"
+      "license_review_url": "https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE"
     },
     {
       "role": "orientation",
@@ -21,8 +20,7 @@
       "sha256": "ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6",
       "url": "https://github.com/PINTO0309/YawNet/releases/download/resources/yawnet_distill_128_unified_v6u_1x3x128x128.onnx",
       "project_url": "https://github.com/PINTO0309/YawNet",
-      "license": "MIT",
-      "license_file": "licenses/YAWNET_LICENSE.txt"
+      "license_review_url": "https://github.com/PINTO0309/YawNet/blob/main/LICENSE"
     }
   ]
 }
