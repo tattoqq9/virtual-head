@@ -7,7 +7,7 @@ Virtual Headは画像、動画、カメラ映像を利用者のWindows PC内で�
 
 ## PC内に保存する情報
 
-- `%LOCALAPPDATA%\VirtualHead\settings.json`：選択したモデル、Skin、画像、動画、出力先、FFmpeg、CUDA DLLフォルダなどのローカルパスと画面設定
+- `%LOCALAPPDATA%\VirtualHead\settings.json`：選択したカメラ名、モデル、Skin、画像、動画、出力先、FFmpeg、CUDA DLLフォルダなどのローカル情報と画面設定
 - `%LOCALAPPDATA%\VirtualHead\app.log`：処理エラーと診断情報。エラー内容にローカルパスが含まれる場合があります
 - `%LOCALAPPDATA%\VirtualHead\models`：利用者がダウンロードを選んだONNXモデル
 - 利用者が選んだ出力先：合成画像または動画、`tracking.jsonl`、`run.json`
@@ -17,7 +17,7 @@ Virtual Headは画像、動画、カメラ映像を利用者のWindows PC内で�
 
 ## カメラと外部プログラム
 
-カメラは利用者が「開始」を押してカメラ入力を選択した場合だけ開きます。停止またはアプリ終了時に解放します。カメラ録画は初期状態では保存されず、「結果を保存する」を選択した場合だけ保存します。
+起動時と「更新」を押したときに、Windows Media Foundationからカメラのデバイス名をPC内で取得して一覧表示します。この列挙では映像を開きません。カメラ映像は利用者が「開始」を押してカメラ入力を選択した場合だけ開き、停止またはアプリ終了時に解放します。カメラ録画は初期状態では保存されず、「結果を保存する」を選択した場合だけ保存します。
 
 利用者がFFmpegを指定した場合、Virtual Headは動画変換のためそのローカル実行ファイルを起動します。指定したFFmpeg自体の動作は、その配布元の方針に従います。
 
