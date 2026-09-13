@@ -2,6 +2,12 @@
 
 Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互換SkinのVoxel頭部を重ねるWindowsアプリです。頭部の位置、大きさ、Yaw（左右の回転）をONNXモデルで推定し、体と背景を実写のまま残します。
 
+## 動作例
+
+![頭の向きに追従するVoxel頭部のOverlay例](assets/virtual-head-demo.gif)
+
+頭を正面から横、後ろへ動かすと、Voxel頭部が検出した位置・大きさ・Yawに合わせて追従します。
+
 ![Virtual Headの画面](guide/images/01_overview.png)
 
 **[最新版のWindows ZIPをReleaseページから取得する](https://github.com/tattoqq9/virtual-head/releases)**
