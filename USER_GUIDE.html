@@ -26,7 +26,7 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <body>
 <header><div><h1>Virtual Head 使い方</h1><p>画像・動画・カメラの実写頭部へ、Minecraft互換SkinのVoxel頭部を重ねるWindowsアプリです。</p></div></header>
 <main>
-<p class="lead">GitHubからWindows用ZIPを取得して展開し、初回だけ標準モデルをダウンロードします。その後、入力と見た目を設定して「開始」を押します。</p>
+<p class="lead">GitHubからWindows用ZIPを取得して展開し、初回だけ標準モデルを取得します。その後、必要なら軽量・高品質モデルを選んで個別取得し、入力と見た目を設定して「開始」を押します。</p>
 <div class="quick"><div><b>1</b>ZIPを取得</div><div><b>2</b>モデルを取得</div><div><b>3</b>入力を選ぶ</div><div><b>4</b>見た目を調整</div><div><b>5</b>開始する</div></div>
 
 <h2>GitHubからダウンロードする</h2>
@@ -70,11 +70,11 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 
 <h2>モデルを設定する</h2>
 <div class="shot"><img src="guide/images/05_models.png" alt="モデル設定">
-<ol class="legend"><li><span class="n">1</span><span>頭部検出器を用途別の一覧から選びます。Goldは高速、YOLOv9-tは標準、DEIMv2はGPU向けです。</span></li><li><span class="n">2</span><span>実際に使用する頭部検出ONNXを表示します。未取得の場合は「選択」から指定します。</span></li><li><span class="n">3</span><span>回転角モデルを選びます。通常はYawNet 128、CPU速度優先ならYawNet 64を選べます。</span></li><li><span class="n">4</span><span>実際に使用する回転角ONNXを表示します。</span></li><li><span class="n">5</span><span>標準モデルの取得、または選択中の頭部モデルの公式ページを開きます。</span></li></ol></div>
+<ol class="legend"><li><span class="n">1</span><span>頭部検出器を用途別の一覧から選びます。Goldは高速、YOLOv9-tは標準、DEIMv2はGPU向けです。</span></li><li><span class="n">2</span><span>実際に使用する頭部検出ONNXと取得状況を表示します。</span></li><li><span class="n">3</span><span>回転角モデルを選びます。通常はYawNet 128、CPU速度優先ならYawNet 64を選べます。</span></li><li><span class="n">4</span><span>実際に使用する回転角ONNXと取得状況を表示します。</span></li><li><span class="n">5</span><span>選択中の頭部・回転角モデルを個別取得するか、標準2モデルをまとめて取得します。</span></li></ol></div>
 <p>各ドロップダウンの下に速度、特性、推奨環境、説明、ファイルの取得状況が表示されます。「自動」はPC上で見つかったモデルから推奨順に選びます。特定モデルを明示した場合、ファイルがなければ別モデルへ勝手に置き換えません。</p>
 <p>実行デバイスは通常「自動（GPU優先・推奨）」を使用します。DirectML版はDirectX 12対応GPUを利用でき、使えない場合はCPUへ戻ります。詳しい分類と選択規則は<code>MODEL_SELECTION.md</code>にまとめています。</p>
-<div class="warning">標準モデルの重みはVirtual Headとは別の第三者著作物です。「ライセンス・情報」から各公式配布元と条件を開き、予定する利用・商用利用・再配布が許可されるかをご自身で判断してください。ダウンロード機能は権利や許諾を保証しません。</div>
-<p>Gold-YOLO-N Headを使う場合は一覧から「おすすめ：Gold-YOLO-N 192×320」を選び、公式配布元から取得した<code>gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx</code>を指定します。このモデルは標準ダウンロードには含まれません。</p>
+<div class="warning">モデル重みはVirtual Headとは別の第三者著作物です。「ライセンス・情報」から各公式配布元と条件を開き、予定する利用・商用利用・再配布が許可されるかをご自身で判断してください。ダウンロード機能は権利や許諾を保証しません。</div>
+<p>Gold-YOLO-N Headを使う場合は一覧から「おすすめ：Gold-YOLO-N 192×320」を選び、個別取得ボタンを押します。公式配布物は約1.37GBの圧縮アーカイブです。アプリは対象の22.5MB ONNXだけを保存しますが、通信量は最大約1.37GBになるため、確認画面の容量を確認してください。</p>
 
 <h2>詳細設定</h2>
 <div class="shot"><img src="guide/images/08_advanced.png" alt="詳細設定">
@@ -91,8 +91,8 @@ code{background:#edf2f1;border-radius:4px;padding:2px 5px} footer{max-width:1080
 <h2>うまく動かないとき</h2>
 <div class="modes"><div class="card"><h3>開始できない</h3><p>入力、頭部検出モデル、回転角モデルの選択を確認します。</p></div><div class="card"><h3>GPUにならない</h3><p>処理中の実行デバイス表示を確認します。DirectML版はDirectX 12対応GPUを使い、利用できなければCPUへ戻ります。</p></div><div class="card"><h3>頭がずれる</h3><p>拡大率、左右・上下位置、固定Pitchを少しずつ調整します。</p></div></div>
 <p>診断ログは<code>%LOCALAPPDATA%\VirtualHead\app.log</code>、実行結果は出力先の<code>run.json</code>にあります。</p>
-<p class="note">映像、画像、SkinはPC内で処理され、外部へ送信されません。標準モデルの取得を選んだ場合だけGitHubへHTTPS接続します。これは非公式アプリであり、MojangまたはMicrosoftの承認・提携を受けていません。</p>
+<p class="note">映像、画像、SkinはPC内で処理され、外部へ送信されません。モデルの取得を選んだ場合だけ公式のGitHubまたはGold-YOLO-N用Wasabi配布先へHTTPS接続します。これは非公式アプリであり、MojangまたはMicrosoftの承認・提携を受けていません。</p>
 </main>
-<footer>Virtual Head 0.1.0-alpha.11 — Copyright © 2026 tatto</footer>
+<footer>Virtual Head 0.1.0-alpha.12 — Copyright © 2026 tatto</footer>
 </body>
 </html>

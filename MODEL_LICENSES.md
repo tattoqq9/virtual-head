@@ -2,7 +2,7 @@
 
 更新日：2026-09-13
 
-Virtual Headの公開ZIPには学習済みONNXモデルを含めません。「標準モデルをダウンロード」を押した場合だけ、各モデルの公式GitHub Releaseから利用者のPCへ直接取得します。
+Virtual Headの公開ZIPには学習済みONNXモデルを含めません。利用者がモデル画面の取得ボタンを押し、確認画面へ同意した場合だけ、公式配布元から利用者のPCへ直接取得します。
 
 ## 使用モデルと謝辞
 
@@ -27,13 +27,13 @@ Virtual Headの頭部検出・回転角推定は、PINTO0309氏（Katsuya Hyodo�
 
 ## 任意のGold-YOLO-N Head
 
-Virtual Head 0.1.0-alpha.10以降は、Gold-YOLO-N Headの固定入力ONNXを外部モデルとして選択できます。推奨した試験ファイルは`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`です。モデルはVirtual HeadのZIP、標準ダウンロード、GitHub Releaseへ含めません。
+Virtual Head 0.1.0-alpha.10以降は、Gold-YOLO-N Headの固定入力ONNXを外部モデルとして選択できます。推奨した試験ファイルは`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`です。モデルはVirtual HeadのZIPやGitHub Releaseへ含めません。alpha.12以降は、利用者の操作により公式配布元から取得できます。
 
-公式の`421_Gold-YOLO-Head`フォルダにはGPL-3.0の`LICENSE`が置かれています。利用者は[モデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)、[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)、[公式ダウンロードスクリプト](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/download_n.sh)を確認し、自分の用途での使用、商用利用、改変、配布の可否を判断してください。アプリがONNX形式に対応していることは、モデルに対する権利や許諾を意味しません。
+公式の`421_Gold-YOLO-Head`フォルダにはGPL-3.0の`LICENSE`が置かれています。利用者は[モデル説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)、[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)、[公式ダウンロードスクリプト](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/download_n.sh)を確認し、自分の用途での使用、商用利用、改変、配布の可否を判断してください。公式配布は約1.37GBの`resources_n.tar.gz`です。アプリはストリームから登録済みONNXだけを保存し、容量とSHA-256を検証します。アプリが取得を補助することは、モデルに対する権利や許諾を意味しません。
 
 ## ドロップダウンから選べる外部モデル
 
-Gold以外に、DEIMv2 DINOv3-S、DEIMv2 DINOv3-X、YawNet 64を選択肢として表示します。これらもアプリや標準ダウンロードには含めません。DEIMv2は[HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)と元リポジトリ、YawNet 64は[YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)とYawNetのライセンスを確認してください。
+Gold以外に、DEIMv2 DINOv3-S、DEIMv2 DINOv3-X、YawNet 64を選択肢として表示します。これらもアプリやGitHub Releaseには同梱せず、alpha.12以降は選択中のモデル取得ボタンから公式Releaseへ接続します。DEIMv2は[HRFFA公式weights Release](https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights)と元リポジトリ、YawNet 64は[YawNet公式resources Release](https://github.com/PINTO0309/YawNet/releases/tag/resources)とYawNetのライセンスを確認してください。
 
 固定している容量とSHA-256は、ダウンロードしたファイルがVirtual Headで検証したファイルと同一かを確認するための情報です。ライセンスの適用範囲や利用許諾を証明するものではありません。
 

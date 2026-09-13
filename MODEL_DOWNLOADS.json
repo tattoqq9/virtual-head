@@ -1,11 +1,28 @@
 {
-  "schema_version": 1,
-  "source_name": "PINTO0309 official GitHub releases",
+  "schema_version": 2,
+  "source_name": "PINTO0309 official distributions",
   "source_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/tag/weights",
   "notice": "Model weights are separate third-party works. Before downloading or using them, each user must review the official project, release, and license pages and decide whether the intended use is permitted. Virtual Head does not grant or guarantee model-weight rights; see MODEL_LICENSES.md.",
   "models": [
     {
+      "id": "gold_yolo_n_192x320",
       "role": "detector",
+      "standard": false,
+      "download_type": "tar_gz_member",
+      "filename": "gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx",
+      "archive_member_basename": "gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx",
+      "bytes": 22516137,
+      "sha256": "b52e639ce8a5d2cf5a70aeede7f94c830583558cf8563d4e908e04b7a109e452",
+      "archive_bytes": 1374379808,
+      "url": "https://s3.ap-northeast-2.wasabisys.com/pinto-model-zoo/421_Gold-YOLO-Head/resources_n.tar.gz",
+      "project_url": "https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head",
+      "license_review_url": "https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE",
+      "download_note": "公式配布は約1.37GBの圧縮アーカイブです。必要な22.5MBのONNXだけを取り出しますが、通信量は最大約1.37GBになります。"
+    },
+    {
+      "id": "yolov9_t_640",
+      "role": "detector",
+      "standard": true,
       "filename": "yolov9_t_wholebody34_0100_1x3x640x640.onnx",
       "bytes": 8192670,
       "sha256": "7dd9b514426b33423ffbc4e22fb6127f2145686441f2c398170585363c009575",
@@ -14,11 +31,46 @@
       "license_review_url": "https://github.com/PINTO0309/PINTO_model_zoo/blob/main/471_YOLO-Wholebody34/LICENSE"
     },
     {
+      "id": "deimv2_dinov3_s",
+      "role": "detector",
+      "standard": false,
+      "filename": "deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "bytes": 76165766,
+      "sha256": "b0ff4c4837f3fb079c64850b8c3cd9d0b7fcf620ef7902c942e728935b428ddd",
+      "url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/download/weights/deimv2_dinov3_s_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "project_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment",
+      "license_review_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment"
+    },
+    {
+      "id": "deimv2_dinov3_x",
+      "role": "detector",
+      "standard": false,
+      "filename": "deimv2_dinov3_x_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "bytes": 240303551,
+      "sha256": "c35c01b50835b42b09c98f0656336a5668181d2561600edf8ee288ece16088df",
+      "url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment/releases/download/weights/deimv2_dinov3_x_wholebody49_ins_s08_maskhead256x3_center_1240query_masks.onnx",
+      "project_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment",
+      "license_review_url": "https://github.com/PINTO0309/High-Angle_Robust_Fast_FaceAlignment"
+    },
+    {
+      "id": "yawnet_128",
       "role": "orientation",
+      "standard": true,
       "filename": "yawnet_distill_128_unified_v6u_1x3x128x128.onnx",
       "bytes": 3078957,
       "sha256": "ccbe06474df5701263d09fdb48af4703fd1c3f67e5934521984f1f455ae75dc6",
       "url": "https://github.com/PINTO0309/YawNet/releases/download/resources/yawnet_distill_128_unified_v6u_1x3x128x128.onnx",
+      "project_url": "https://github.com/PINTO0309/YawNet",
+      "license_review_url": "https://github.com/PINTO0309/YawNet/blob/main/LICENSE"
+    },
+    {
+      "id": "yawnet_64",
+      "role": "orientation",
+      "standard": false,
+      "filename": "yawnet_distill_064_unified_v6u_kappa_1x3x64x64.onnx",
+      "bytes": 3079649,
+      "sha256": "201cb190c512dfe5f6fa0518afe439e122d41c80514253e91276c889d5810660",
+      "url": "https://github.com/PINTO0309/YawNet/releases/download/resources/yawnet_distill_064_unified_v6u_kappa_1x3x64x64.onnx",
       "project_url": "https://github.com/PINTO0309/YawNet",
       "license_review_url": "https://github.com/PINTO0309/YawNet/blob/main/LICENSE"
     }

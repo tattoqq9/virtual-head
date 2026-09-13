@@ -13,7 +13,7 @@ Virtual Headは、画像・動画・カメラの実写頭部へ、Minecraft互�
 **[最新版のWindows ZIPをReleaseページから取得する](https://github.com/tattoqq9/virtual-head/releases)**
 
 > [!WARNING]
-> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式GitHub Releaseより取得します。モデル重みの利用条件は、各利用者が[公式確認先の一覧](MODEL_LICENSES.md)から確認して判断してください。
+> 現在は未署名のプレリリースです。学習済みONNXモデルはZIPに含めず、利用者がアプリ内のボタンからPINTO0309氏の公式配布先より取得します。モデル重みの利用条件は、各利用者が[公式確認先の一覧](MODEL_LICENSES.md)から確認して判断してください。
 
 ## ダウンロード
 
@@ -31,30 +31,32 @@ Windows x64用です。Pythonのインストールは不要です。
 ## 初回起動
 
 1. 「モデル」タブを開きます。
-2. 「標準モデルをダウンロード」を押します。
+2. 「標準2モデルをまとめて取得」を押します。
 3. 合計約11MBのYOLOv9-t頭部検出モデルとYawNet 128を公式配布元から取得し、容量とSHA-256を検証してドロップダウンへ自動設定します。
 4. 入力とSkinを選び、「開始」を押します。
 
-標準モデルの取得は利用者がボタンを押した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
+モデルの取得は利用者がボタンを押し、確認画面で承認した場合だけ実行します。取得URL、容量、SHA-256は[MODEL_DOWNLOADS.json](MODEL_DOWNLOADS.json)に固定しています。
 
 ## モデルを用途別に選ぶ
 
-0.1.0-alpha.11では、頭部検出と回転角を別々のドロップダウンから選べます。選択肢の下に速度、特性、推奨環境、ファイルの取得状況を表示します。
+0.1.0-alpha.12では、頭部検出と回転角を別々のドロップダウンから選べます。選択肢の下に速度、特性、推奨環境、ファイルの取得状況を表示します。
 
 - 頭部検出：自動、Gold-YOLO-N 192×320、YOLOv9-t 640×640、DEIMv2 DINOv3-S、DEIMv2 DINOv3-X、カスタムONNX
 - 回転角：自動、YawNet 128、YawNet 64、カスタムONNX
 
 「自動」はPC上にあるモデルから推奨順に選びます。特定モデルを明示した場合、ファイルがなければ別モデルへ勝手に置き換えません。詳しい比較と選択規則は[モデル選択UIの設計](MODEL_SELECTION.md)を確認してください。
 
+名前の付いた6種類はすべてUIから取得できます。ドロップダウンで選び、「選択中の頭部モデルを取得」または「選択中の回転角モデルを取得」を押してください。YOLOv9-tとYawNet 128は「標準2モデルをまとめて取得」でも同時に取得できます。カスタムONNXは利用者が用意したファイルを選択します。
+
 ![モデルのドロップダウン](guide/images/05_models.png)
 
 ## 任意の高速頭部検出モデル
 
-0.1.0-alpha.10以降は、[Gold-YOLO-N Head](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)の固定入力ONNXを選択できます。16:9映像には`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`を確認済みです。alpha.11では「おすすめ：Gold-YOLO-N 192×320」を選び、取得したONNXを指定します。
+0.1.0-alpha.10以降は、[Gold-YOLO-N Head](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)の固定入力ONNXを選択できます。16:9映像には`gold_yolo_n_head_0277_0.5071_1x3x192x320.onnx`を確認済みです。alpha.12では「おすすめ：Gold-YOLO-N 192×320」を選び、「選択中の頭部モデルを取得」から取得できます。
 
 現在のテスト動画341フレームでは341/341を検出し、検出器単体の中央値はDirectML 1.32ms、CPU 4.55msでした。標準YOLOv9-tは同じ条件でDirectML 6.41ms、CPU 25.57msです。全体速度にはYawNet、描画、保存時間も含まれるため、この倍率がそのままアプリ全体の倍率にはなりません。[詳細な比較結果](GOLD_YOLO_N_RESULT.md)を参照してください。
 
-Gold-YOLO-NのモデルはZIPや標準ダウンロードへ含めません。公式フォルダにはGPL-3.0のライセンスが置かれているため、利用者自身で[公式説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)と[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)を確認し、自分の用途で使用できるか判断してください。
+Gold-YOLO-NのモデルはZIPへ含めません。アプリは公式の約1.37GBのtar.gzをストリームで読み、対象の約22.5MBのONNXだけを保存します。対象ファイルがアーカイブの後方へ移動した場合に備え、通信量は最大約1.37GBを見込んでください。公式フォルダにはGPL-3.0のライセンスが置かれているため、利用者自身で[公式説明](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)と[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)を確認し、自分の用途で使用できるか判断してください。
 
 ## 使用モデルと謝辞
 
@@ -79,7 +81,7 @@ Gold-YOLO-NのモデルはZIPや標準ダウンロードへ含めません。公
 PowerShellでの確認例です。表示された値をReleaseの`.sha256`と比較します。
 
 ```powershell
-Get-FileHash .\VirtualHead-0.1.0-alpha.11-windows-x64.zip -Algorithm SHA256
+Get-FileHash .\VirtualHead-0.1.0-alpha.12-windows-x64.zip -Algorithm SHA256
 ```
 
 確認後は次の手順で警告を解除できます。
@@ -95,7 +97,7 @@ Get-FileHash .\VirtualHead-0.1.0-alpha.11-windows-x64.zip -Algorithm SHA256
 プロパティに解除項目がない場合は、SHA-256確認後にPowerShellで次を実行し、ZIPを展開し直せます。
 
 ```powershell
-Unblock-File -LiteralPath .\VirtualHead-0.1.0-alpha.11-windows-x64.zip
+Unblock-File -LiteralPath .\VirtualHead-0.1.0-alpha.12-windows-x64.zip
 ```
 
 SmartScreen自体を無効にする必要はありません。「実行」が表示されず、Windows 11のSmart App Controlがブロックしている場合、この未署名版をファイル単位で許可する方法はありません。PC全体の保護機能を無効にすることは推奨しません。
@@ -116,7 +118,7 @@ SmartScreen自体を無効にする必要はありません。「実行」が表
 
 ## GPUの自動利用
 
-0.1.0-alpha.11では、選択した検出器とYawNetの両方をDirectMLで実行できます。「自動（GPU優先・推奨）」では同梱ランタイムが利用できるGPUを使い、利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
+0.1.0-alpha.12では、選択した検出器とYawNetの両方をDirectMLで実行できます。「自動（GPU優先・推奨）」では同梱ランタイムが利用できるGPUを使い、利用できなければ処理を止めずにCPUへ切り替えます。実際に選ばれたデバイスは画面の状態表示と`run.json`の`active_device`で確認できます。
 
 DirectML版はDirectX 12対応のNVIDIA、AMD、Intel GPUを利用でき、CUDA Toolkitの追加導入は不要です。診断用に「DirectML固定」も選択できます。
 
@@ -162,7 +164,7 @@ CUDA DLL、任意ランドマーク、FFmpegは「詳細」タブにまとめて
 
 ## プライバシーとセキュリティ
 
-画像、動画、カメラ映像は利用者のPC内で処理されます。映像、診断情報、利用統計を外部送信しません。利用者が標準モデルの取得を選んだ場合だけ、GitHubへHTTPS接続します。詳しくは[PRIVACY.md](PRIVACY.md)と[SECURITY.md](SECURITY.md)を参照してください。
+画像、動画、カメラ映像は利用者のPC内で処理されます。映像、診断情報、利用統計を外部送信しません。利用者がモデル取得を選んだ場合だけ、GitHubまたはGold-YOLO-Nの公式Wasabi配布先へHTTPS接続します。詳しくは[PRIVACY.md](PRIVACY.md)と[SECURITY.md](SECURITY.md)を参照してください。
 
 不具合は[GitHub Issues](https://github.com/tattoqq9/virtual-head/issues)へ報告できます。ログや`run.json`にはローカルのユーザー名やファイルパスが含まれる場合があるため、公開前に内容を確認してください。未修正の脆弱性は公開Issueではなく、[GitHubの非公開Security Advisory](https://github.com/tattoqq9/virtual-head/security/advisories/new)から報告してください。
 

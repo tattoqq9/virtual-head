@@ -38,4 +38,4 @@ Minecraft SkinのOverlayも192×320生出力版とYawNet 128の組み合わせ�
 
 Gold-YOLO-Headの[公式フォルダ](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)にはGPL-3.0の[LICENSE](https://github.com/PINTO0309/PINTO_model_zoo/blob/main/421_Gold-YOLO-Head/LICENSE)が置かれています。公式`download_n.sh`は複数の変換済みモデルを含む約1.37GBのアーカイブを取得します。
 
-Virtual Headは非公開ソースで配布する方針のため、このモデルをZIPへ同梱せず、標準モデルのワンクリック取得にも追加しません。利用する場合は、利用者が[公式説明と配布物](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)を確認して取得し、自分の用途に適用される条件を判断したうえでローカルONNXを選択してください。
+Virtual Headは非公開ソースで配布する方針のため、このモデルをZIPへ同梱しません。alpha.12以降は、利用者がUIでGoldを選び、確認画面へ同意した場合に限り公式の約1.37GBアーカイブへ接続します。アプリは登録した22.5MB ONNXだけを保存し、容量とSHA-256を検証します。利用者は[公式説明と配布物](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/421_Gold-YOLO-Head)を確認し、自分の用途に適用される条件を判断してください。
